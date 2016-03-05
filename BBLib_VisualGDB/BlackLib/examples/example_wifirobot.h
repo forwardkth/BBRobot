@@ -6,6 +6,9 @@
  *  Author: Chao Li
  *  Email:forward.li.kth@gmail.com
  *  Blog: http://forwardkth.github.io/
+ *
+ *  You should have received a copy of the GNU Lesser General Public License  
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.  
  */
 #ifndef BLACKLIB_EXAMPLES_EXAMPLE_WIFIROBOT_H_
 #define BLACKLIB_EXAMPLES_EXAMPLE_WIFIROBOT_H_
