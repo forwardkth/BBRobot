@@ -3,7 +3,7 @@ This is the VS2015 project solution with VisualGDB configuration for My Beaglebo
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
 
 The picture below shows the visualGDB configuration with VS2015 for cross complie and remote debug and deploy
-![](http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg)
+http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
 
 You can find the same robot project on linux with Eclipse here: https://github.com/forwardkth/Blacklib_template.git 
 ------------------------------------------------------------
