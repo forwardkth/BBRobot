@@ -34,9 +34,9 @@
 int laser_status = 0;
 int servoxy_angle = 82;
 int servoz_angle = 10;
-int distance = 100;
-int lowlen;
-int highlen;
+int utra_distance = 100;
+int lowlen = 0;
+int highlen = 0;
 
 using namespace BlackLib;
 // TCP thread for order receiver and execution
@@ -119,7 +119,7 @@ class TCP_receiver : public BlackThread {
           gpio1_15.setValue(low);
           this->msleep(10);
         } else if (order[0] == '1') { // motor forward
-          if(distance >= 200) {
+          if(utra_distance >= 200) {
             gpio1_12.setValue(high);
             gpio1_15.setValue(high);
           }
@@ -251,7 +251,7 @@ int wifirobot() {
                                      BlackLib::ParityNo, //this setting is very important
                                      BlackLib::StopOne,
                                      BlackLib::Char8);
-  Ultrasound *ultras = new Ultrasound(Usound_serial, distance, lowlen, highlen);
+  Ultrasound *ultras = new Ultrasound(Usound_serial, utra_distance, lowlen, highlen);
   ultras->run();
   //TCP init
   int serverSocket;
