@@ -2,6 +2,14 @@
 This is the VS2015 project solution with VisualGDB configuration for My Beaglebone WIFI robot project based on modified Blacklib (c++) running on Debian Linux. 
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
 
+-------------------------------------------------------------
+My Modification to the original Blacklib recently are:
+
+1. Modification to the class of BalckPWM
+2. Implement the BlackServo class for easier Servo control like "PyBBIO"
+3. Add Servo control example code (example_Servo.h) under /BlackLib/examples folder
+4. Add my WIFI robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
+
 The picture below shows the visualGDB configuration with VS2015 for cross complie and remote debug and deploy
 http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
 
