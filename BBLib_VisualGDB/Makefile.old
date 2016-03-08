@@ -23,7 +23,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := BBLib_VisualGDB.cpp
+SOURCEFILES := BlackLib/BlackADC/BlackADC.cpp BlackLib/BlackCore.cpp BlackLib/BlackDirectory/BlackDirectory.cpp BlackLib/BlackGPIO/BlackGPIO.cpp BlackLib/BlackI2C/BlackI2C.cpp BlackLib/BlackMutex/BlackMutex.cpp BlackLib/BlackPWM/BlackPWM.cpp BlackLib/BlackServo/BlackServo.cpp BlackLib/BlackSPI/BlackSPI.cpp BlackLib/BlackThread/BlackThread.cpp BlackLib/BlackTime/BlackTime.cpp BlackLib/BlackUART/BlackUART.cpp Main.cpp
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
@@ -163,3 +163,52 @@ $(BINARYDIR)/%.o : %.cxx $(all_make_files) |$(BINARYDIR)
 	$(CC) $(CFLAGS) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
 
 #VisualGDB: GeneratedRules				#<--- All lines below are auto-generated
+
+
+$(BINARYDIR)/BlackADC.o : BlackLib/BlackADC/BlackADC.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackCore.o : BlackLib/BlackCore.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackDirectory.o : BlackLib/BlackDirectory/BlackDirectory.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackGPIO.o : BlackLib/BlackGPIO/BlackGPIO.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackI2C.o : BlackLib/BlackI2C/BlackI2C.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackMutex.o : BlackLib/BlackMutex/BlackMutex.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackPWM.o : BlackLib/BlackPWM/BlackPWM.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackServo.o : BlackLib/BlackServo/BlackServo.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackSPI.o : BlackLib/BlackSPI/BlackSPI.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackThread.o : BlackLib/BlackThread/BlackThread.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackTime.o : BlackLib/BlackTime/BlackTime.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/BlackUART.o : BlackLib/BlackUART/BlackUART.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+

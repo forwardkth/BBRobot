@@ -175,7 +175,7 @@ class TCP_receiver : public BlackThread {
     BlackGPIO gpio1_6;
 };
 
-// TCP thread for order receiver and execution
+// TCP thread for sending sensor data to client
 class TCP_sender : public BlackLib::BlackThread {
 
 };
@@ -299,7 +299,7 @@ int wifirobot() {
 	  			 (struct sockaddr*) &clientAddr,
 	  			 (socklen_t*) &clientAddrSize);
 
-	TCP_receiver *rev = new TCP_receiver(sock, servoXY, servoZ,
+    TCP_receiver *rev = new TCP_receiver(sock, servoXY, servoZ,
 			                             laser_status,
 			                             servoxy_angle,
 			                             servoz_angle,
