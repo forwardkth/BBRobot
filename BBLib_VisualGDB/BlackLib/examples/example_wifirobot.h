@@ -157,7 +157,6 @@ class TCP_receiver : public BlackThread {
         gpio1_15.setValue(low);
         gpio1_6.setValue(low);
       }
-      close(soc);
       return;
     }
 
@@ -294,11 +293,10 @@ int wifirobot() {
   int clientAddrSize = sizeof(struct sockaddr_in);
 
   std::cout << "TCP socket created!"<< std::endl;
+  sock = accept(serverSocket,
+	  	        (struct sockaddr*) &clientAddr,
+	  	        (socklen_t*) &clientAddrSize);
   while(1) {
-	sock = accept(serverSocket,
-	  			 (struct sockaddr*) &clientAddr,
-	  			 (socklen_t*) &clientAddrSize);
-
     TCP_receiver *rev = new TCP_receiver(sock, servoXY, servoZ,
 			                             laser_status,
 			                             servoxy_angle,
@@ -310,6 +308,7 @@ int wifirobot() {
 									     GPIO1_6);
 	rev -> run();
   }
+  close(sock)；
   return 0;
 }
 
