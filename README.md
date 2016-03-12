@@ -19,11 +19,13 @@ You can find the same robot project on linux with Eclipse here: https://github.c
 ![](http://ww1.sinaimg.cn/mw690/74505a4cgw1evgrdvaux5j21kw16o1if.jpg)
 ![](http://ww4.sinaimg.cn/mw1024/74505a4cjw1f15bm3c82lj218g0xcqku.jpg)
 
-The old DEMO video on Youtube:
-https://www.youtube.com/embed/v77tkjFmZqY
-
 The new DEMO video on Youtube:
 https://youtu.be/q4rHsRQ4LsQ
+https://youtu.be/8c8KAbVZPCA
+
+The old outdoor DEMO video on Youtube:
+https://www.youtube.com/v77tkjFmZqY
+
 ------------------------------------------------------------
 The code compiled sucessfully under windows 10 with Visual studio 2015 and visualGDB 5.0.
 
