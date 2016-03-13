@@ -1,0 +1,2 @@
+﻿  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Debug" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
+  make: Nothing to be done for `all'.

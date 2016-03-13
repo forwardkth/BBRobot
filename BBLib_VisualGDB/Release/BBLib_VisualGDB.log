@@ -1,0 +1,39 @@
+﻿  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Release" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O3   -DNDEBUG -DRELEASE  -c BlackLib/BlackADC/BlackADC.cpp -o Release/BlackADC.o -MD -MF Release/BlackADC.dep
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O3   -DNDEBUG -DRELEASE  -c BlackLib/BlackCore.cpp -o Release/BlackCore.o -MD -MF Release/BlackCore.dep
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O3   -DNDEBUG -DRELEASE  -c BlackLib/BlackDirectory/BlackDirectory.cpp -o Release/BlackDirectory.o -MD -MF Release/BlackDirectory.dep
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O3   -DNDEBUG -DRELEASE  -c BlackLib/BlackGPIO/BlackGPIO.cpp -o Release/BlackGPIO.o -MD -MF Release/BlackGPIO.dep
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O3   -DNDEBUG -DRELEASE  -c BlackLib/BlackI2C/BlackI2C.cpp -o Release/BlackI2C.o -MD -MF Release/BlackI2C.dep
+  In file included from c:\sysgcc\beaglebone\bin\../lib/gcc/arm-linux-gnueabihf/4.6/../../../../arm-linux-gnueabihf/include/c++/4.6/cstdint:35:0,
+                   from BlackLib/BlackI2C/BlackI2C.h:44,
+                   from BlackLib/BlackI2C/BlackI2C.cpp:33:
+c:\sysgcc\beaglebone\bin\..\lib\gcc\arm-linux-gnueabihf\4.6\..\..\..\..\arm-linux-gnueabihf\include\c++\4.6\bits\c++0x_warning.h(32,2): error : #error This file requires compiler and library support for the upcoming ISO C++ standard, C++0x. This support is currently experimental, and must be enabled with the -std=c++0x or -std=gnu++0x compiler options.
+  In file included from BlackLib/BlackI2C/BlackI2C.cpp:33:0:
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(223,57): error : 'uint8_t' has not been declared
+  In file included from BlackLib/BlackI2C/BlackI2C.cpp:33:0:
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(361,35): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(361,57): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(435,35): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(435,57): error : 'uint16_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(501,36): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(501,58): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(564,35): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(577,13): error : 'uint8_t' does not name a type
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(590,13): error : 'uint16_t' does not name a type
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(605,13): error : 'uint8_t' does not name a type
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.h(621,34): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(56,59): error : 'uint8_t' has not been declared
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(151,33): error : 'bool BlackLib::BlackI2C::writeByte' is not a static member of 'class BlackLib::BlackI2C'
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(151,33): error : 'uint8_t' was not declared in this scope
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(151,55): error : 'uint8_t' was not declared in this scope
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(151,68): error : expression list treated as compound expression in initializer [-fpermissive]
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(152,5): error : expected ',' or ';' before '{' token
+E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BlackLib\BlackI2C\BlackI2C.cpp(373,1): error : expected '}' at end of input
+  make: *** [Release/BlackI2C.o] Error 1
+  -------------------------------------------------------------
+  Command exited with code 2
+  Executable: cmd.exe
+  Arguments: /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Release
+  Directory: E:\project\BBRobot_visualGDB\BBLib_VisualGDB
+VisualGDB : error : Command-line action failed
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.MakeFile.Targets(37,5): error MSB3073: The command ""C:\Program Files (x86)\Sysprogs\VisualGDB\VisualGDB.exe" /build "E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BBLib_VisualGDB.vcxproj" "/solution:E:\project\BBRobot_visualGDB\BBLib_VisualGDB.sln" "/config:Release" "/platform:Win32"" exited with code 1.
