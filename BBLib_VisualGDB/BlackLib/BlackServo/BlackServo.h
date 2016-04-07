@@ -31,7 +31,6 @@ class BlackServo: public BlackPWM {
   bool ReleasePWM();
 
   BlackServo(pwmName pwmPin);
-  BlackServo();
   virtual ~BlackServo();
 
  private:

@@ -1,31 +1,3 @@
-﻿  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Debug clean" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
-  del /S /Q Debug
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BBLib_VisualGDB
-  E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BBLib_VisualGDB.log
-  The process cannot access the file because it is being used by another process.
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackADC.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackADC.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackCore.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackCore.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackDirectory.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackDirectory.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackGPIO.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackGPIO.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackI2C.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackI2C.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackMutex.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackMutex.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackPWM.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackPWM.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackServo.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackServo.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackSPI.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackSPI.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackThread.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackThread.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackTime.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackTime.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackUART.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackUART.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\Main.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\Main.o
+﻿  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Debug" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O0 -std=c++0x -lpthread  -DDEBUG  -c Main.cpp -o Debug/Main.o -MD -MF Debug/Main.dep
+  C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe -o Debug/BBLib_VisualGDB. -Wl,-gc-sections -lpthread   -Wl,--start-group Debug/BlackADC.o Debug/BlackCore.o Debug/BlackDirectory.o Debug/BlackGPIO.o Debug/BlackI2C.o Debug/BlackMutex.o Debug/BlackPWM.o Debug/BlackServo.o Debug/BlackSPI.o Debug/BlackThread.o Debug/BlackTime.o Debug/BlackUART.o Debug/Main.o -lpthread  -Wl,--rpath='$ORIGIN'   -Wl,--end-group

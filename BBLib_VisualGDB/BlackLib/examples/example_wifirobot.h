@@ -53,8 +53,8 @@ public:
 		BlackGPIO &io1_13,
 		BlackGPIO &io1_14,
 		BlackGPIO &io1_15,
-		BlackGPIO &io1_6)
-		:xy(XY), z(Z),
+		BlackGPIO &io1_6):
+		xy(XY), z(Z),
 		laser(laser_status),
 		xyangle(servoxy_angle),
 		zangle(servoz_angle),
@@ -97,25 +97,25 @@ public:
 			std::cout << "listen failed!" << std::endl;
 			exit(1);
 		}
+		else {
+			std::cout << "listening........" << std::endl;
+		}
 
 		// waiting for a connection
 		int sock;
 		int clientAddrSize = sizeof(struct sockaddr_in);
-		std::cout << "TCP RX socket created!" << std::endl;
+		
 		//std::cout << "read!"<<"  "<<order<< std::endl;
 		//std::cout << "zangle!"<<"  "<<zangle<< std::endl;
 		//std::cout << "xyangle!"<<"  "<<xyangle<< std::endl;
-		
-
 		//TCP_receive thread loop
 		while (1) {
 			sock = accept(serverSocket,
 				(struct sockaddr*) &clientAddr,
 				(socklen_t*)&clientAddrSize);
-
 			char order;
 			recv(sock, &order, 1, 0);
-
+			std::cout << "received order" << "  " << order << std::endl;
 			if (order) {
 				if (order == '5') { //PLZ UP
 					if (zangle <= 78) {
@@ -176,10 +176,10 @@ public:
 					this->msleep(10);
 				}
 				else if (order == '1') { // motor forward
-					if (ultra_distance >= 200) {
+					//if (ultra_distance >= 200) {
 						gpio1_12.setValue(high);
 						gpio1_15.setValue(high);
-					}
+				//	}
 					this->msleep(10);
 				}
 				else if (order == '2') { // motor backward
@@ -217,9 +217,9 @@ public:
 				gpio1_15.setValue(low);
 				gpio1_6.setValue(low);
 			}
+			close(sock);
+			//std::cout << "socket closed!" << std::endl;
 		}
-
-		close(sock);
 		return;
 	}
 
@@ -299,7 +299,7 @@ public:
 			std::cout << "Device Path     : " << uart.getPortName() << std::endl;
 			std::cout << "Read Buf. Size  : " << uart.getReadBufferSize() << std::endl;
 			std::cout << "BaudRate In/Out : " << uart.getBaudRate(BlackLib::input) << "/"
-				<< uart.getBaudRate(BlackLib::output) << std::endl;
+				      << uart.getBaudRate(BlackLib::output) << std::endl;
 			std::cout << "Character Size  : " << uart.getCharacterSize() << std::endl;
 			std::cout << "Stop Bit Size   : " << uart.getStopBits() << std::endl;
 			std::cout << "Parity          : " << uart.getParity() << std::endl << std::endl;

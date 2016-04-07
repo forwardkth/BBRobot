@@ -31,23 +31,14 @@
 #ifndef BLACKCORE_H_
 #define BLACKCORE_H_
 
-
 #include "BlackErr.h"       // Black Errors header file
 #include "BlackDef.h"       // Black Definitions header file
-
 
 #include <cstring>
 #include <string>
 #include <sstream>          // need for tostr() function
 #include <cstdio>           // need for popen() function in BlackCore::executeShellCmd(),popen()会调用fork()产生子进程，然后从子进程中调用/bin/sh -c 来执行参数command 的指令
 #include <dirent.h>         // need for dirent struct in BlackCore::searchDirectory(),dirent，LINUX系统下的一个头文件，在这个目录下/usr/include，为了获取某文件夹目录内容，所使用的结构体
-
-
-
-
-
-
-
 
 namespace BlackLib
 {
@@ -64,10 +55,6 @@ namespace BlackLib
         os << t;
         return os.str();
     }
-
-
-
-
 
     // ########################################### BLACKCORE DECLARATION STARTS ########################################### //
 
@@ -194,8 +181,6 @@ namespace BlackLib
 
     };
     // ############################################ BLACKCORE DECLARATION ENDS ############################################ //
-
-
 } /* namespace BlackLib */
 
 #endif /* BLACKCORE_H_ */
