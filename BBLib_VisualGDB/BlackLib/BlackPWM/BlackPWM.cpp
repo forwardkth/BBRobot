@@ -39,6 +39,8 @@ namespace BlackLib
 {
 
     // ######################################### BLACKCOREPWM DEFINITION STARTS ########################################## //
+	BlackCorePWM::BlackCorePWM() {}
+
     BlackCorePWM::BlackCorePWM(pwmName pwm)
     {
         this->pwmPinName    = pwm;
