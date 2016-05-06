@@ -3,7 +3,7 @@ This is the VS2015 project solution with VisualGDB configuration for My Beaglebo
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
 
 -------------------------------------------------------------
-###(I am trying to look into "BlackLib" and rewrite the  classes now. The current version of the BlackLib inlucdes a lot of vitual private inheritances that make the whole structure unnecessarily complex and not so efficient. )
+###(I am trying to look into "BlackLib" and rewrite the  classes now.)
 My temporary Modifications to the original Blacklib recently are:
 
 1. Modification to the class of BalckPWM
