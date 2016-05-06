@@ -3,7 +3,8 @@ This is the VS2015 project solution with VisualGDB configuration for My Beaglebo
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
 
 -------------------------------------------------------------
-My Modification to the original Blacklib recently are:
+###(I am trying to look into "BlackLib" and rewrite the  classes now. The current version of the BlackLib inlucdes a lot of vitual private inheritances that make the whole structure unnecessarily complex and not so efficient. )
+My temporary Modifications to the original Blacklib recently are:
 
 1. Modification to the class of BalckPWM
 2. Implement the BlackServo class for easier Servo control like "PyBBIO"
@@ -21,6 +22,7 @@ You can find the same robot project on linux with Eclipse here: https://github.c
 
 The new DEMO video on Youtube:
 https://youtu.be/q4rHsRQ4LsQ
+https://youtu.be/8HmHFWRzwfQ
 https://youtu.be/8c8KAbVZPCA
 
 The old outdoor DEMO video on Youtube:
