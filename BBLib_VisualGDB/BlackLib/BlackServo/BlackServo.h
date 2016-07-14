@@ -16,7 +16,7 @@
 
 namespace BlackLib {
 
-class BlackServo: virtual private BlackPWM {
+class BlackServo: public BlackPWM {
  public:
  /*! @brief write servo motor angle between 0 to 180 degree.
   *
@@ -31,6 +31,7 @@ class BlackServo: virtual private BlackPWM {
   bool ReleasePWM();
 
   BlackServo(pwmName pwmPin);
+  BlackServo();
   virtual ~BlackServo();
 
  private:

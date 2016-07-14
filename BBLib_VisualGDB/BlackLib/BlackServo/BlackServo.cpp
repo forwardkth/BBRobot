@@ -15,10 +15,10 @@ namespace BlackLib{
 
 BlackServo::BlackServo(pwmName pwmPin)
     : BlackPWM(pwmPin),
-	max_ms(2.4),
-	min_ms(0.5),
-	pwmFreq(50),
-	period(1000.0 / pwmFreq) {
+	  max_ms(2.4),
+	  min_ms(0.5),
+	  pwmFreq(50),
+	  period(1000.0 / pwmFreq) {
   this -> setDutyPercent(0.0);
   this -> setPeriodTime(20, milisecond);
 }

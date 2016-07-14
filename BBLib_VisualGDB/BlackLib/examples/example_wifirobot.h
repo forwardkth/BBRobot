@@ -53,7 +53,7 @@ public:
 		BlackGPIO &io1_13,
 		BlackGPIO &io1_14,
 		BlackGPIO &io1_15,
-		BlackGPIO &io1_6):
+		BlackGPIO &io1_6) :
 		xy(XY), z(Z),
 		laser(laser_status),
 		xyangle(servoxy_angle),
@@ -72,7 +72,7 @@ public:
 
 		int port = TCP_PORT_RX;   // TCP server port
 
-							   // creat and initialize a socket
+								  // creat and initialize a socket
 		serverSocket = socket(AF_INET, SOCK_STREAM, 0);
 
 		// optional setting，try to avoid the server can not be restart quickly
@@ -104,7 +104,7 @@ public:
 		// waiting for a connection
 		int sock;
 		int clientAddrSize = sizeof(struct sockaddr_in);
-		
+
 		//std::cout << "read!"<<"  "<<order<< std::endl;
 		//std::cout << "zangle!"<<"  "<<zangle<< std::endl;
 		//std::cout << "xyangle!"<<"  "<<xyangle<< std::endl;
@@ -176,10 +176,10 @@ public:
 					this->msleep(10);
 				}
 				else if (order == '1') { // motor forward
-					//if (ultra_distance >= 200) {
-						gpio1_12.setValue(high);
-						gpio1_15.setValue(high);
-				//	}
+										 //if (ultra_distance >= 200) {
+					gpio1_12.setValue(high);
+					gpio1_15.setValue(high);
+					//	}
 					this->msleep(10);
 				}
 				else if (order == '2') { // motor backward
@@ -299,7 +299,7 @@ public:
 			std::cout << "Device Path     : " << uart.getPortName() << std::endl;
 			std::cout << "Read Buf. Size  : " << uart.getReadBufferSize() << std::endl;
 			std::cout << "BaudRate In/Out : " << uart.getBaudRate(BlackLib::input) << "/"
-				      << uart.getBaudRate(BlackLib::output) << std::endl;
+				<< uart.getBaudRate(BlackLib::output) << std::endl;
 			std::cout << "Character Size  : " << uart.getCharacterSize() << std::endl;
 			std::cout << "Stop Bit Size   : " << uart.getStopBits() << std::endl;
 			std::cout << "Parity          : " << uart.getParity() << std::endl << std::endl;
@@ -330,7 +330,7 @@ private:
 };
 
 // wifirobot APP loop will be called in main
-int wifirobot() {	
+int wifirobot() {
 	//robot PLZ init
 	BlackServo servoXY(BlackLib::EHRPWM1B);
 	BlackServo servoZ(BlackLib::EHRPWM2B);
@@ -357,7 +357,7 @@ int wifirobot() {
 		BlackLib::ParityNo, //this setting is very important
 		BlackLib::StopOne,
 		BlackLib::Char8);
-	
+
 	//start ultrasound thread
 	Ultrasound *ultras = new Ultrasound(Usound_serial, ultra_distance, lowlen, highlen);
 	ultras->run();
@@ -373,19 +373,20 @@ int wifirobot() {
 		GPIO1_15,
 		GPIO1_6);
 	rev->run();
-	
+
 	//start TCP_TX thread
 	//..................
 
 	//main loop
-	while(1) {
+	while (1) {
 
 		usleep(100);
 		if (ultras->isFinished()) {
 			delete ultras;
 			ultras = nullptr;
 			break;
-		} else if (rev->isFinished()) {
+		}
+		else if (rev->isFinished()) {
 			delete rev;
 			rev = nullptr;
 			break;

@@ -94,7 +94,7 @@ namespace BlackLib
      *    for using pwms and protected functions which are using for exporting private variables to
      *    derived class(es).
      */
-    class BlackCorePWM : virtual private BlackCore
+    class BlackCorePWM : public BlackCore
     {
         private:
             errorCorePWM    *pwmCoreErrors;             /*!< @brief is used to hold the errors of BlackCorePWM class */
@@ -162,8 +162,6 @@ namespace BlackLib
             *  @sa BlackCorePWM::findPwmTestName()
             *  @sa pwmName
             */
-			                BlackCorePWM(); //default constructor
-
                             BlackCorePWM(pwmName pwm);
 
             /*! @brief Destructor of BlackCorePWM class.
@@ -300,7 +298,7 @@ namespace BlackLib
      * @n <b> (t1+t2) </b> represents "period time" ==> @b 4 units at the figure
      * @n <b> (t2/(t1+t2)) </b> represents "duty ratio" ==> @b 0.25 at the figure
      */
-    class BlackPWM : virtual private BlackCorePWM //cancel virtual inheritance for creating BlackServo class later
+    class BlackPWM : public BlackCorePWM
     {
         private:
             errorPWM        *pwmErrors;                 /*!< @brief is used to hold the errors of BlackPWM class */

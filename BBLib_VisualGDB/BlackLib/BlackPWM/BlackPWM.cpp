@@ -39,8 +39,6 @@ namespace BlackLib
 {
 
     // ######################################### BLACKCOREPWM DEFINITION STARTS ########################################## //
-	BlackCorePWM::BlackCorePWM() {}
-
     BlackCorePWM::BlackCorePWM(pwmName pwm)
     {
         this->pwmPinName    = pwm;
@@ -361,7 +359,7 @@ namespace BlackLib
 
     bool        BlackPWM::setDutyPercent(float percantage)
     {
-        if( percantage > 100.0 || percantage < 0.0 )
+        if( percantage > 100.0 or percantage < 0.0 )
         {
             this->pwmErrors->outOfRange      = true;
             this->pwmErrors->dutyFileError   = true;
@@ -561,15 +559,15 @@ namespace BlackLib
 
     bool        BlackPWM::fail()
     {
-        return (this->pwmErrors->outOfRange ||
-                this->pwmErrors->runFileError ||
-                this->pwmErrors->dutyFileError ||
-                this->pwmErrors->periodFileError ||
-                this->pwmErrors->polarityFileError ||
-                this->pwmErrors->pwmCoreErrors->dtError ||
-                this->pwmErrors->pwmCoreErrors->dtSsError ||
-                this->pwmErrors->pwmCoreErrors->pwmTestError ||
-                this->pwmErrors->pwmCoreErrors->coreErrors->ocpError ||
+        return (this->pwmErrors->outOfRange or
+                this->pwmErrors->runFileError or
+                this->pwmErrors->dutyFileError or
+                this->pwmErrors->periodFileError or
+                this->pwmErrors->polarityFileError or
+                this->pwmErrors->pwmCoreErrors->dtError or
+                this->pwmErrors->pwmCoreErrors->dtSsError or
+                this->pwmErrors->pwmCoreErrors->pwmTestError or
+                this->pwmErrors->pwmCoreErrors->coreErrors->ocpError or
                 this->pwmErrors->pwmCoreErrors->coreErrors->capeMgrError
                 );
     }
