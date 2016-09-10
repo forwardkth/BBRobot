@@ -216,6 +216,7 @@ public:
 				gpio1_14.setValue(low);
 				gpio1_15.setValue(low);
 				gpio1_6.setValue(low);
+				this->msleep(10);
 			}
 			close(sock);
 			//std::cout << "socket closed!" << std::endl;
