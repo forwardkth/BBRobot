@@ -1,0 +1,31 @@
+﻿  VisualGDB: Run "cmd.exe /c "C:\Program Files (x86)\Sysprogs\VisualGDB\make.exe" CONFIG=Release clean" in directory "E:\project\BBRobot_visualGDB\BBRobot_linaro" on local computer
+  del /S /Q Release
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BBRobot_linaro
+  E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BBRobot_linaro.log
+  The process cannot access the file because it is being used by another process.
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackADC.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackADC.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackCore.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackCore.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackDirectory.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackDirectory.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackGPIO.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackGPIO.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackI2C.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackI2C.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackMutex.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackMutex.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackPWM.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackPWM.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackServo.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackServo.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackSPI.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackSPI.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackThread.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackThread.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackTime.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackTime.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackUART.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\BlackUART.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\Main.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBRobot_linaro\Release\Main.o

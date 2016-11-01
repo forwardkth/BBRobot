@@ -1,0 +1,11 @@
+﻿  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Release clean" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
+  del /S /Q Release
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BBLib_VisualGDB.log
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackADC.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackADC.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackCore.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackCore.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackDirectory.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackDirectory.o
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackGPIO.dep
+  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Release\BlackGPIO.o

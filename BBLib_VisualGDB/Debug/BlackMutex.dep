@@ -1,0 +1,24 @@
+Debug/BlackMutex.o: BlackLib/BlackMutex/BlackMutex.cpp \
+ BlackLib/BlackMutex/BlackMutex.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/pthread.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/features.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/stdc-predef.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/sys/cdefs.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/wordsize.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/gnu/stubs.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/endian.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/endian.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/byteswap.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/types.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/typesizes.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/byteswap-16.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/sched.h \
+ c:\sysgcc\beaglebone\bin\../lib/gcc/arm-linux-gnueabihf/4.6/include/stddef.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/time.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/sched.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/time.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/timex.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/xlocale.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h \
+ c:\sysgcc\beaglebone\bin\../arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/bits/setjmp.h

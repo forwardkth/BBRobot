@@ -1,0 +1,15 @@
+﻿  VisualGDB: Run "cmd.exe /c "C:\Program Files (x86)\Sysprogs\VisualGDB\make.exe" CONFIG=Debug" in directory "E:\project\BBRobot_visualGDB\BBRobot_linaro" on local computer
+  C:/SysGCC/linaro4.9/bin/arm-linux-gnueabihf-g++.exe -ggdb -ffunction-sections -O0 -std=c++11   -DDEBUG  -c azure_iot_hub.cpp -o Debug/azure_iot_hub.o -MD -MF Debug/azure_iot_hub.dep
+E:\project\BBRobot_visualGDB\BBRobot_linaro\azure_iot_hub.cpp(5,45): fatal error : azure_c_shared_utility/platform.h: No such file or directory
+   #include "azure_c_shared_utility/platform.h"
+                                               ^
+  compilation terminated.
+  make: *** [Debug/azure_iot_hub.o] Error 1
+  -------------------------------------------------------------
+  Command exited with code 2
+  Executable: cmd.exe
+  Arguments: /c "C:\Program Files (x86)\Sysprogs\VisualGDB\make.exe" CONFIG=Debug
+  Directory: E:\project\BBRobot_visualGDB\BBRobot_linaro
+VisualGDB : error : Command-line action failed
+EXEC : error : Build has failed. See the Output window for more details.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.MakeFile.Targets(41,5): error MSB3073: The command ""C:\Program Files (x86)\Sysprogs\VisualGDB\VisualGDB.exe" /build "E:\project\BBRobot_visualGDB\BBRobot_linaro\BBRobot_linaro.vcxproj" "/solution:E:\project\BBRobot_visualGDB\BBLib_VisualGDB.sln" "/config:Debug" "/platform:Win32"" exited with code 1.

@@ -1,0 +1,24 @@
+Debug/BlackMutex.o: ../BBLib_VisualGDB/BlackLib/BlackMutex/BlackMutex.cpp \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\stdc-predef.h \
+ ../BBLib_VisualGDB/BlackLib/BlackMutex/BlackMutex.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\pthread.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\features.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\sys\cdefs.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\wordsize.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\gnu\stubs.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\gnu\stubs-hard.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\endian.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\endian.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\byteswap.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\types.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\typesizes.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\byteswap-16.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\sched.h \
+ c:\sysgcc\linaro4.9\lib\gcc\arm-linux-gnueabihf\4.9.4\include\stddef.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\time.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\sched.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\time.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\timex.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\xlocale.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\pthreadtypes.h \
+ c:\sysgcc\linaro4.9\arm-linux-gnueabihf\libc\usr\include\bits\setjmp.h
