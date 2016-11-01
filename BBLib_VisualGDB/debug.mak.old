@@ -21,10 +21,10 @@ MACOS_FRAMEWORKS :=
 LINUX_PACKAGES := 
 
 CFLAGS := -ggdb -ffunction-sections -O0
-CXXFLAGS := -ggdb -ffunction-sections -O0 -std=c++0x
+CXXFLAGS := -ggdb -ffunction-sections -O0 -std=c++11
 ASFLAGS := 
 LDFLAGS := -Wl,-gc-sections
-COMMONFLAGS := 
+COMMONFLAGS := -lpthread
 
 START_GROUP := -Wl,--start-group
 END_GROUP := -Wl,--end-group

@@ -71,7 +71,7 @@ public:
 		struct sockaddr_in clientAddr;
 
 		int port = TCP_PORT_RX;   // TCP server port
-
+		
 								  // creat and initialize a socket
 		serverSocket = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -317,7 +317,7 @@ public:
 				Highlen = (int)readArr[0];
 				Lowlen = (int)readArr[1];
 				range = Highlen * 256 + Lowlen;
-				//std::cout<< "distance forward: "<<range<<std::endl;
+				std::cout<< "distance forward: "<<range<<std::endl;
 			}
 			return;
 		}

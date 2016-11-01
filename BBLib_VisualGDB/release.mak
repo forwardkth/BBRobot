@@ -5,11 +5,11 @@
 BINARYDIR := Release
 
 #Toolchain
-CC := C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-gcc.exe
-CXX := C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe
+CC := C:/SysGCC/linaro/bin/arm-linux-gnueabihf-gcc.exe
+CXX := C:/SysGCC/linaro/bin/arm-linux-gnueabihf-g++.exe
 LD := $(CXX)
-AR := C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-ar.exe
-OBJCOPY := C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-objcopy.exe
+AR := C:/SysGCC/linaro/bin/arm-linux-gnueabihf-ar.exe
+OBJCOPY := C:/SysGCC/linaro/bin/arm-linux-gnueabihf-objcopy.exe
 
 #Additional flags
 PREPROCESSOR_MACROS := NDEBUG RELEASE
@@ -20,8 +20,8 @@ ADDITIONAL_LINKER_INPUTS :=
 MACOS_FRAMEWORKS := 
 LINUX_PACKAGES := 
 
-CFLAGS := -ggdb -ffunction-sections -O3
-CXXFLAGS := -ggdb -ffunction-sections -O3
+CFLAGS := -ggdb -ffunction-sections -O0 -std=c++0x
+CXXFLAGS := -ggdb -ffunction-sections -O0 -std=c++0x
 ASFLAGS := 
 LDFLAGS := -Wl,-gc-sections
 COMMONFLAGS := 
