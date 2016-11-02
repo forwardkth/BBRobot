@@ -150,6 +150,7 @@
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_directory.h" />
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_GPIO.h" />
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_I2C.h" />
+    <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_MQTT.h" />
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_PWM.h" />
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_Servo.h" />
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_SPI.h" />
@@ -158,7 +159,7 @@
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_UART.h" />
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_wifirobot.h" />
   </ItemGroup>
-   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Microsoft.Azure.IoTHub.AmqpTransport.1.0.14\build\native\Microsoft.Azure.IoTHub.AmqpTransport.targets" Condition="Exists('..\packages\Microsoft.Azure.IoTHub.AmqpTransport.1.0.14\build\native\Microsoft.Azure.IoTHub.AmqpTransport.targets')" />
     <Import Project="..\packages\Microsoft.Azure.uamqp.1.0.15\build\native\Microsoft.Azure.uamqp.targets" Condition="Exists('..\packages\Microsoft.Azure.uamqp.1.0.15\build\native\Microsoft.Azure.uamqp.targets')" />

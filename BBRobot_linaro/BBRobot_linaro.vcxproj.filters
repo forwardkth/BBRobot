@@ -147,5 +147,8 @@
     <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_wifirobot.h">
       <Filter>Examples</Filter>
     </ClInclude>
+    <ClInclude Include="..\BBLib_VisualGDB\BlackLib\examples\example_MQTT.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

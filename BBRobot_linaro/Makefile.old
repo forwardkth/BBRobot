@@ -23,7 +23,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := ../BBLib_VisualGDB/BlackLib/BlackADC/BlackADC.cpp ../BBLib_VisualGDB/BlackLib/BlackCore.cpp ../BBLib_VisualGDB/BlackLib/BlackDirectory/BlackDirectory.cpp ../BBLib_VisualGDB/BlackLib/BlackGPIO/BlackGPIO.cpp ../BBLib_VisualGDB/BlackLib/BlackI2C/BlackI2C.cpp ../BBLib_VisualGDB/BlackLib/BlackMutex/BlackMutex.cpp ../BBLib_VisualGDB/BlackLib/BlackPWM/BlackPWM.cpp ../BBLib_VisualGDB/BlackLib/BlackServo/BlackServo.cpp ../BBLib_VisualGDB/BlackLib/BlackSPI/BlackSPI.cpp ../BBLib_VisualGDB/BlackLib/BlackThread/BlackThread.cpp ../BBLib_VisualGDB/BlackLib/BlackTime/BlackTime.cpp ../BBLib_VisualGDB/BlackLib/BlackUART/BlackUART.cpp ../BBLib_VisualGDB/Main.cpp azure_iot_hub.cpp
+SOURCEFILES := ../BBLib_VisualGDB/BlackLib/BlackADC/BlackADC.cpp ../BBLib_VisualGDB/BlackLib/BlackCore.cpp ../BBLib_VisualGDB/BlackLib/BlackDirectory/BlackDirectory.cpp ../BBLib_VisualGDB/BlackLib/BlackGPIO/BlackGPIO.cpp ../BBLib_VisualGDB/BlackLib/BlackI2C/BlackI2C.cpp ../BBLib_VisualGDB/BlackLib/BlackMutex/BlackMutex.cpp ../BBLib_VisualGDB/BlackLib/BlackPWM/BlackPWM.cpp ../BBLib_VisualGDB/BlackLib/BlackServo/BlackServo.cpp ../BBLib_VisualGDB/BlackLib/BlackSPI/BlackSPI.cpp ../BBLib_VisualGDB/BlackLib/BlackThread/BlackThread.cpp ../BBLib_VisualGDB/BlackLib/BlackTime/BlackTime.cpp ../BBLib_VisualGDB/BlackLib/BlackUART/BlackUART.cpp ../BBLib_VisualGDB/BlackLib/MQTT/Clients.c ../BBLib_VisualGDB/BlackLib/MQTT/MQTTClient.c ../BBLib_VisualGDB/Main.cpp
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
@@ -211,6 +211,14 @@ $(BINARYDIR)/BlackTime.o : ../BBLib_VisualGDB/BlackLib/BlackTime/BlackTime.cpp $
 
 $(BINARYDIR)/BlackUART.o : ../BBLib_VisualGDB/BlackLib/BlackUART/BlackUART.cpp $(all_make_files) |$(BINARYDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/Clients.o : ../BBLib_VisualGDB/BlackLib/MQTT/Clients.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/MQTTClient.o : ../BBLib_VisualGDB/BlackLib/MQTT/MQTTClient.c $(all_make_files) |$(BINARYDIR)
+	$(CC) $(CFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
 
 
 $(BINARYDIR)/Main.o : ../BBLib_VisualGDB/Main.cpp $(all_make_files) |$(BINARYDIR)
