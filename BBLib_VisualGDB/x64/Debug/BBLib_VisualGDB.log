@@ -1,29 +1,3 @@
-﻿  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Debug clean" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
-  del /S /Q Debug
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BBLib_VisualGDB
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackADC.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackADC.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackCore.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackCore.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackDirectory.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackDirectory.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackGPIO.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackGPIO.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackI2C.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackI2C.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackMutex.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackMutex.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackPWM.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackPWM.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackServo.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackServo.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackSPI.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackSPI.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackThread.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackThread.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackTime.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackTime.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackUART.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\BlackUART.o
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\Main.dep
-  Deleted file - E:\project\BBRobot_visualGDB\BBLib_VisualGDB\Debug\Main.o
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.Cpp.props(31,3): warning MSB4011: "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.Makefile.props" cannot be imported again. It was already imported at "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.cpp.props (31,3)". This is most likely a build authoring error. This subsequent import will be ignored. [E:\project\BBRobot_visualGDB\BBLib_VisualGDB\BBLib_VisualGDB.vcxproj]
+  VisualGDB: Run "cmd.exe /c "C:\SysGCC\beaglebone\bin\make.exe" CONFIG=Debug" in directory "E:\project\BBRobot_visualGDB\BBLib_VisualGDB" on local computer
+  make: Nothing to be done for `all'.

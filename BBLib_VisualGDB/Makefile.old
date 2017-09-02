@@ -16,14 +16,25 @@ CONFIG ?= DEBUG
 CONFIGURATION_FLAGS_FILE := $(call to_lowercase,$(CONFIG)).mak
 
 include $(CONFIGURATION_FLAGS_FILE)
+#LINKER_SCRIPT defined inside the configuration file (e.g. debug.mak) should override any linker scripts defined in shared .mak files
+CONFIGURATION_LINKER_SCRIPT := $(LINKER_SCRIPT)
+
 include $(ADDITIONAL_MAKE_FILES)
+
+ifneq ($(CONFIGURATION_LINKER_SCRIPT),)
+LINKER_SCRIPT := $(CONFIGURATION_LINKER_SCRIPT)
+endif
+
+ifneq ($(LINKER_SCRIPT),)
+LDFLAGS += -T$(LINKER_SCRIPT)
+endif
 
 ifeq ($(BINARYDIR),)
 error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := azure_iot_hub.cpp BlackLib/BlackADC/BlackADC.cpp BlackLib/BlackCore.cpp BlackLib/BlackDirectory/BlackDirectory.cpp BlackLib/BlackGPIO/BlackGPIO.cpp BlackLib/BlackI2C/BlackI2C.cpp BlackLib/BlackMutex/BlackMutex.cpp BlackLib/BlackPWM/BlackPWM.cpp BlackLib/BlackServo/BlackServo.cpp BlackLib/BlackSPI/BlackSPI.cpp BlackLib/BlackThread/BlackThread.cpp BlackLib/BlackTime/BlackTime.cpp BlackLib/BlackUART/BlackUART.cpp Main.cpp
+SOURCEFILES := BlackLib/BlackADC/BlackADC.cpp BlackLib/BlackCore.cpp BlackLib/BlackDirectory/BlackDirectory.cpp BlackLib/BlackGPIO/BlackGPIO.cpp BlackLib/BlackI2C/BlackI2C.cpp BlackLib/BlackMutex/BlackMutex.cpp BlackLib/BlackPWM/BlackPWM.cpp BlackLib/BlackServo/BlackServo.cpp BlackLib/BlackSPI/BlackSPI.cpp BlackLib/BlackThread/BlackThread.cpp BlackLib/BlackTime/BlackTime.cpp BlackLib/BlackUART/BlackUART.cpp Main.cpp
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
