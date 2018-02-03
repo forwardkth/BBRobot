@@ -1,5 +1,5 @@
 # BBRobot_VisualGDB by Chao
-This is the VS2015 project solution with VisualGDB configuration for My Beaglebone WIFI robot project based on modified Blacklib (c++) running on Debian Linux. 
+This is a VS2017 C++ project with VisualGDB configuration for My Beaglebone WIFI robot project based on modified "Blacklib" running on Debian Linux. 
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
 
 -------------------------------------------------------------
@@ -27,7 +27,7 @@ The old outdoor DEMO video on Youtube:
 https://www.youtube.com/v77tkjFmZqY
 
 ------------------------------------------------------------
-The code compiled sucessfully under windows 10 with Visual studio 2015 and visualGDB 5.0.
+The code compiled sucessfully under windows 10 with Visual studio 2017 and visualGDB 5.0.
 
 If you want to know how to use install VisualGDB and how to develop C++ application for Beaglebone (Debian Linux) 
 on Windows OS, you can check out the following links:
