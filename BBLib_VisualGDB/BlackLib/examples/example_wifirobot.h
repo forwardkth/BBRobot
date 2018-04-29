@@ -1,4 +1,5 @@
 /*  This is a example of creating a wifi control robot based on Beablebone
+*  It is a qucik demo that shows you how to use BBlib for a remobe operation robot project.
 *  by using the BlackLib of my own version
 *  https://www.youtube.com/embed/v77tkjFmZqY
 *
@@ -28,9 +29,11 @@
 #include "../BlackGPIO/BlackGPIO.h"
 #include "../BlackUART/BlackUART.h"
 
-#define TCP_ADDR "192.168.1.79"
-#define TCP_PORT_RX 2002
-#define TCP_PORT_TX 2003
+using namespace BlackLib;
+
+const std::string TCP_ADDR("192.168.1.79");
+const int TCP_PORT_RX = 2002;
+const int TCP_PORT_TX = 2003;
 
 int laser_status = 0;
 int servoxy_angle = 82;
@@ -39,11 +42,11 @@ int ultra_distance = 100;
 int lowlen = 0;
 int highlen = 0;
 
-using namespace BlackLib;
+
 // TCP thread for order receiver and execution
-class TCP_receiver : public BlackThread {
+class TCPReceiverThread : public BlackThread {
 public:
-	TCP_receiver(
+	TCPReceiverThread(
 		BlackServo &XY,
 		BlackServo &Z,
 		int &laser_status,
@@ -238,9 +241,9 @@ private:
 };
 
 // TCP thread for cmd receiving and execution
-class TCP_sender : public BlackLib::BlackThread {
+class TCPSenderThread : public BlackLib::BlackThread {
 public:
-	TCP_sender() {};
+	TCPSenderThread() {};
 
 	void onStartHandler() {
 		//TCP init
@@ -285,9 +288,9 @@ public:
 };
 
 // Ultra sound thread for distance detection
-class Ultrasound : public BlackLib::BlackThread {
+class UltraSound : public BlackLib::BlackThread {
 public:
-	Ultrasound(BlackUART &serial,
+	UltraSound(BlackUART &serial,
 		int &distance, int &low, int &high)
 		: uart(serial), range(distance), Lowlen(low), Highlen(high) {
 
@@ -359,12 +362,12 @@ int wifirobot() {
 		BlackLib::StopOne,
 		BlackLib::Char8);
 
-	//start ultrasound thread
-	Ultrasound *ultras = new Ultrasound(Usound_serial, ultra_distance, lowlen, highlen);
+	//start UltraSound thread
+	UltraSound *ultras = new UltraSound(Usound_serial, ultra_distance, lowlen, highlen);
 	ultras->run();
 
 	//start TCP_RX thread
-	TCP_receiver *rev = new TCP_receiver(servoXY, servoZ,
+	TCPReceiverThread *rev = new TCPReceiverThread(servoXY, servoZ,
 		laser_status,
 		servoxy_angle,
 		servoz_angle,

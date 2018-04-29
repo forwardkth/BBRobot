@@ -26,15 +26,10 @@
  ####################################################################################
 
  */
-
-
-
 #include "BlackUART.h"
-
 
 namespace BlackLib
 {
-
     BlackUART::BlackUART(uartName uart, baudRate uartBaud, parity uartParity, stopBits uartStopBits, characterSize uartCharSize)
     {
         this->dtUartFilename            = "BB-UART" + tostr(static_cast<int>(uart));
@@ -91,8 +86,6 @@ namespace BlackLib
         delete this->uartErrors;
     }
 
-
-
     bool        BlackUART::loadDeviceTree()
     {
         std::string file = this->getSlotsFilePath();
@@ -114,7 +107,6 @@ namespace BlackLib
         }
     }
 
-
     bool        BlackUART::open(uint openMode)
     {
         int flags = 0;
@@ -128,15 +120,12 @@ namespace BlackLib
 
         this->uartFD = ::open(this->uartPortPath.c_str(), flags | O_NOCTTY);
 
-
         if( this->uartFD < 0 )
         {
             this->uartErrors->openError = true;
             this->isOpenFlag            = false;
             return false;
         }
-
-
 
         this->uartErrors->openError     = false;
         this->isOpenFlag                = true;
@@ -176,8 +165,6 @@ namespace BlackLib
         }
     }
 
-
-
     bool        BlackUART::flush(direction whichDirection)
     {
         int isFlushed = -1;
@@ -216,8 +203,6 @@ namespace BlackLib
         }
     }
 
-
-
     bool        BlackUART::read(char *readBuffer, size_t size)
     {
         char tempReadBuffer[size];
@@ -255,8 +240,6 @@ namespace BlackLib
         }
     }
 
-
-
     bool        BlackUART::write(char *writeBuffer, size_t size)
     {
         if(::write(this->uartFD, writeBuffer, size) > 0)
@@ -285,9 +268,6 @@ namespace BlackLib
         }
     }
 
-
-
-
     bool        BlackUART::transfer(char *writeBuffer, char *readBuffer, size_t size, uint32_t wait_us)
     {
         if(::write(this->uartFD, writeBuffer, size ) > 0)
@@ -301,7 +281,6 @@ namespace BlackLib
         }
 
         usleep(wait_us);
-
 
         char tempReadBuffer[ size ];
         memset(&tempReadBuffer, 0, size);
@@ -353,8 +332,6 @@ namespace BlackLib
 
     }
 
-
-
     uint32_t    BlackUART::getReadBufferSize()
     {
         return this->readBufferSize;
@@ -371,8 +348,6 @@ namespace BlackLib
     {
         return this->uartPortPath;
     }
-
-
 
     baudRate    BlackUART::getBaudRate(direction whichDirection)
     {
@@ -393,8 +368,6 @@ namespace BlackLib
         {
             this->uartErrors->baudRateError = false;
         }
-
-
 
         if( whichDirection == input )
         {
@@ -476,8 +449,6 @@ namespace BlackLib
             return false;
         }
     }
-
-
 
     parity      BlackUART::getParity()
     {
@@ -566,8 +537,6 @@ namespace BlackLib
         }
     }
 
-
-
     stopBits    BlackUART::getStopBits()
     {
         if( !(this->isOpenFlag) )
@@ -587,7 +556,6 @@ namespace BlackLib
         {
             this->uartErrors->stopBitsError = false;
         }
-
 
         if( (tempProperties.c_cflag & CSTOPB) == CSTOPB )
         {
@@ -623,7 +591,6 @@ namespace BlackLib
             tempProperties.c_cflag &= ~(CSTOPB);
         }
 
-
         if( tcsetattr(this->uartFD, applyMode, &tempProperties) == 0 )
         {
             this->uartErrors->stopBitsError = false;
@@ -636,8 +603,6 @@ namespace BlackLib
             return false;
         }
     }
-
-
 
     characterSize BlackUART::getCharacterSize()
     {
@@ -715,8 +680,6 @@ namespace BlackLib
                 break;
         }
 
-
-
         if( tcsetattr(this->uartFD, applyMode, &tempProperties) == 0 )
         {
             this->currentUartProperties.uartCharSize = (newCharacterSize == CharDefault) ? Char8 : newCharacterSize;
@@ -730,9 +693,6 @@ namespace BlackLib
         }
 
     }
-
-
-
 
     BlackUartProperties BlackUART::getProperties()
     {
@@ -902,16 +862,12 @@ namespace BlackLib
 
     }
 
-
-
-
-
-    bool        BlackUART::isOpen()
+    bool BlackUART::isOpen()
     {
         return this->isOpenFlag;
     }
 
-    bool        BlackUART::isClose()
+    bool BlackUART::isClose()
     {
         return !(this->isOpenFlag);
     }
@@ -919,7 +875,7 @@ namespace BlackLib
 
 
 
-    bool        BlackUART::fail()
+    bool BlackUART::fail()
     {
         return (this->uartErrors->dtError or
                 this->uartErrors->readError or
@@ -935,7 +891,7 @@ namespace BlackLib
                 );
     }
 
-    bool        BlackUART::fail(BlackUART::flags f)
+    bool BlackUART::fail(BlackUART::flags f)
     {
         if(f==dtErr)            { return this->uartErrors->dtError;         }
         if(f==readErr)          { return this->uartErrors->readError;       }
@@ -955,7 +911,7 @@ namespace BlackLib
 
 
 
-    BlackUART&      BlackUART::operator<<(std::string &writeFromThis)
+    BlackUART& BlackUART::operator<<(std::string &writeFromThis)
     {
         if(::write(this->uartFD,writeFromThis.c_str(),writeFromThis.size() ) > 0)
         {
@@ -969,7 +925,7 @@ namespace BlackLib
         return *this;
     }
 
-    BlackUART&      BlackUART::operator>>(std::string &readToThis)
+    BlackUART& BlackUART::operator>>(std::string &readToThis)
     {
         std::string tempReadBuffer;
         tempReadBuffer.resize(this->readBufferSize);

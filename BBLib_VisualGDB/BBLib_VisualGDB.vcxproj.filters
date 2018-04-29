@@ -16,6 +16,9 @@
     <Filter Include="Examples">
       <UniqueIdentifier>{170b3464-e340-48cb-850b-cf4f868cac82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="project Header files">
+      <UniqueIdentifier>{6c3c747f-4cdf-4226-abff-84f1235f01d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="debug.mak">
@@ -29,9 +32,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="BlackLib\BlackUART\BlackUART.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
@@ -66,6 +66,21 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="BlackLib\BlackADC\BlackADC.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="WiFiRobot\WiFiRobotTCPReceiverThread.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="WiFiRobot\WiFiRobotTCPSenderThread.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="WiFiRobot\ExampleMain.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="WiFiRobot\WiFiRobotMain.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="WiFiRobot\WiFiRobotUltraSoundThread.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,6 +162,15 @@
     </ClInclude>
     <ClInclude Include="BlackLib\examples\example_ADC.h">
       <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="WiFiRobot\WiFiRobotTCPReceiverThread.h">
+      <Filter>project Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="WiFiRobot\WiFiRobotTCPSenderThread.h">
+      <Filter>project Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="WiFiRobot\WiFiRobotUltraSoundThread.h">
+      <Filter>project Header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

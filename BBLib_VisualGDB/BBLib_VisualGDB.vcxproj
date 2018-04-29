@@ -215,7 +215,11 @@
     <ClCompile Include="BlackLib\BlackThread\BlackThread.cpp" />
     <ClCompile Include="BlackLib\BlackTime\BlackTime.cpp" />
     <ClCompile Include="BlackLib\BlackUART\BlackUART.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="WiFiRobot\ExampleMain.cpp" />
+    <ClCompile Include="WiFiRobot\WiFiRobotMain.cpp" />
+    <ClCompile Include="WiFiRobot\WiFiRobotTCPReceiverThread.cpp" />
+    <ClCompile Include="WiFiRobot\WiFiRobotTCPSenderThread.cpp" />
+    <ClCompile Include="WiFiRobot\WiFiRobotUltraSoundThread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlackLib\BlackADC\BlackADC.h" />
@@ -244,6 +248,9 @@
     <ClInclude Include="BlackLib\examples\example_time.h" />
     <ClInclude Include="BlackLib\examples\example_UART.h" />
     <ClInclude Include="BlackLib\examples\example_wifirobot.h" />
+    <ClInclude Include="WiFiRobot\WiFiRobotTCPReceiverThread.h" />
+    <ClInclude Include="WiFiRobot\WiFiRobotTCPSenderThread.h" />
+    <ClInclude Include="WiFiRobot\WiFiRobotUltraSoundThread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

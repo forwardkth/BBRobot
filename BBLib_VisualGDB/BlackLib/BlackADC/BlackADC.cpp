@@ -29,10 +29,6 @@
 
 #include "BlackADC.h"
 
-
-
-
-
 namespace BlackLib
 {
 

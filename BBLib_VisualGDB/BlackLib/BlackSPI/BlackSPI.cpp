@@ -26,17 +26,10 @@
  ####################################################################################
 
  */
-
-
-
-
-
 #include "BlackSPI.h"
 
 namespace BlackLib
 {
-
-
     BlackSPI::BlackSPI(spiName spi)
     {
         this->spiChipNumber     = (static_cast<int>(spi) % 2);
