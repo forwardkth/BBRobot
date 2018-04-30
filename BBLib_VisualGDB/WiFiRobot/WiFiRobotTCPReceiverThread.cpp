@@ -13,12 +13,6 @@
 
 const std::string TCP_ADDR("192.168.1.79");
 const int TCP_PORT_RX = 2002;
-int laser_status = 0;
-int servoxy_angle = 82;
-int servoz_angle = 10;
-int ultra_distance = 100;
-int lowlen = 0;
-int highlen = 0;
 
 namespace WiFiRobot {
 
@@ -63,16 +57,17 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
     exit(1);
   }
   // start listening and the max client number is 5
+  std::cout << "listening........" << std::endl;
   rc = listen(serverSocket, 100);
   if (rc == -1) {
   std::cout << "listen failed!" << std::endl;
   exit(1);
   } else {
-    std::cout << "listening........" << std::endl; // waiting for a connection
+    std::cout << "TCP RX socket connected!" << std::endl; // waiting for a connection
   }
   int sock;
   int clientAddrSize = sizeof(struct sockaddr_in);
-
+  
   while (true) {
     sock = accept(serverSocket,
                   (struct sockaddr*) &clientAddr,
@@ -166,9 +161,9 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
         this->msleep(10);
       }
       close(sock);
-        //std::cout << "socket closed!" << std::endl;
+      //std::cout << "socket closed!" << std::endl;
     }
     return;
 }
 
-}
+} // namespace WiFiRobot
