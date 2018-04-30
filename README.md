@@ -22,6 +22,9 @@ My Modification to the original Blacklib recently are:
 3. Add Servo control example code (example_Servo.h) under /BlackLib/examples folder
 4. Add my WIFI robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
 
+You can find the formal WifiRobot source files under project folder "BBLib_VisualGDB/WiFiRobot/"
+You can run the examples with the ExampleMain.cpp or run the formal project with WiFiRobotMain.cpp
+
 The picture below shows the visualGDB configuration with VS2015 for cross complie and remote debug and deploy
 http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
 
