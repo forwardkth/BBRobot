@@ -43,7 +43,7 @@ void UltraSound::onStartHandler() {
     char writeArr[4] = "U\r\n";
     char readArr[22];
     memset(readArr, 0, sizeof(readArr));
-    //string readt;
+
     while (1) {
       uart.flush(BlackLib::direction::bothDirection);
       uart.write(writeArr, sizeof(writeArr));
