@@ -1,13 +1,9 @@
-/*
- * BlackServo.cpp
- *
- * BlackLib Library controls Beaglebone's Servo motor by PWM.
- *
- *  Created on: Oct 25, 2015
- *      Author: Chao Li
- *      Email:forward.li.kth@gmail.com
- *      Blog: http://forwardkth.github.io/
- */
+// BlackServo.cpp
+// BlackLib Library controls Beaglebone's Servo motor by PWM.
+// Created on: Oct 25, 2015
+// Author: Chao Li
+// Email:forward.li.kth@gmail.com
+// Blog: http://forwardkth.github.io/
 
 #ifndef BLACKSERVO_H_
 #define BLACKSERVO_H_
@@ -30,7 +26,7 @@ class BlackServo: public BlackPWM {
   */
   bool ReleasePWM();
 
-  BlackServo(pwmName pwmPin);
+  explicit BlackServo(pwmName pwmPin);
   BlackServo();
   virtual ~BlackServo();
 
