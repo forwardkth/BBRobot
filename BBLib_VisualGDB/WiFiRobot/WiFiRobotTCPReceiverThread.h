@@ -25,7 +25,6 @@
 #include "../BlackLib/BlackMutex/BlackMutex.h"
 #include "../BlackLib/BlackServo/BlackServo.h"
 #include "../BlackLib/BlackGPIO/BlackGPIO.h"
-#include "../BlackLib/BlackUART/BlackUART.h"
 
 using namespace BlackLib;
 
