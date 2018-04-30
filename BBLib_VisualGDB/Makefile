@@ -34,7 +34,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := BlackLib/BlackADC/BlackADC.cpp BlackLib/BlackCore.cpp BlackLib/BlackDirectory/BlackDirectory.cpp BlackLib/BlackGPIO/BlackGPIO.cpp BlackLib/BlackI2C/BlackI2C.cpp BlackLib/BlackMutex/BlackMutex.cpp BlackLib/BlackPWM/BlackPWM.cpp BlackLib/BlackServo/BlackServo.cpp BlackLib/BlackSPI/BlackSPI.cpp BlackLib/BlackThread/BlackThread.cpp BlackLib/BlackTime/BlackTime.cpp BlackLib/BlackUART/BlackUART.cpp Main.cpp
+SOURCEFILES := BlackLib/BlackADC/BlackADC.cpp BlackLib/BlackCore.cpp BlackLib/BlackDirectory/BlackDirectory.cpp BlackLib/BlackGPIO/BlackGPIO.cpp BlackLib/BlackI2C/BlackI2C.cpp BlackLib/BlackMutex/BlackMutex.cpp BlackLib/BlackPWM/BlackPWM.cpp BlackLib/BlackServo/BlackServo.cpp BlackLib/BlackSPI/BlackSPI.cpp BlackLib/BlackThread/BlackThread.cpp BlackLib/BlackTime/BlackTime.cpp BlackLib/BlackUART/BlackUART.cpp WiFiRobot/ExampleMain.cpp WiFiRobot/WiFiRobotMain.cpp WiFiRobot/WiFiRobotTCPReceiverThread.cpp WiFiRobot/WiFiRobotTCPSenderThread.cpp WiFiRobot/WiFiRobotUltraSoundThread.cpp
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
@@ -221,5 +221,25 @@ $(BINARYDIR)/BlackTime.o : BlackLib/BlackTime/BlackTime.cpp $(all_make_files) |$
 
 
 $(BINARYDIR)/BlackUART.o : BlackLib/BlackUART/BlackUART.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/ExampleMain.o : WiFiRobot/ExampleMain.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/WiFiRobotMain.o : WiFiRobot/WiFiRobotMain.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/WiFiRobotTCPReceiverThread.o : WiFiRobot/WiFiRobotTCPReceiverThread.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/WiFiRobotTCPSenderThread.o : WiFiRobot/WiFiRobotTCPSenderThread.cpp $(all_make_files) |$(BINARYDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
+
+
+$(BINARYDIR)/WiFiRobotUltraSoundThread.o : WiFiRobot/WiFiRobotUltraSoundThread.cpp $(all_make_files) |$(BINARYDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -MD -MF $(@:.o=.dep)
 
