@@ -23,8 +23,6 @@
 #include <unistd.h>
 #include "../BlackLib/BlackThread/BlackThread.h"
 #include "../BlackLib/BlackMutex/BlackMutex.h"
-#include "../BlackLib/BlackServo/BlackServo.h"
-#include "../BlackLib/BlackGPIO/BlackGPIO.h"
 
 using namespace BlackLib;
 

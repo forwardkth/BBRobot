@@ -14,7 +14,7 @@ const int TCP_PORT_TX = 2003; //Listen on Port 2003 for TCP TX
 
 namespace WiFiRobot {
 
-void TCPSenderThread:: onStartHandler() { //Runnable
+void TCPSenderThread:: onStartHandler() {
   struct sockaddr_in serverAddr;
   struct sockaddr_in clientAddr;
   int port = TCP_PORT_TX;   // TCP server TX port
