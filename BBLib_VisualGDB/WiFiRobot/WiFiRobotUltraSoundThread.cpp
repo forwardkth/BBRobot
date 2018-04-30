@@ -11,10 +11,6 @@
 
 #include "WiFiRobotUltraSoundThread.h"
 
-int ultra_distance = 100;
-int lowlen = 0;
-int highlen = 0;
-
 namespace WiFiRobot {
 
 UltraSound::UltraSound(BlackUART &serial,
