@@ -4,9 +4,9 @@
  * BlackLib Library controls Beaglebone's Servo motor by PWM.
  *
  *  Created on: Oct 25, 2015
- *      Author: Chao Li
- *      Email:forward.li.kth@gmail.com
- *      Blog: http://forwardkth.github.io/
+ *  Author: Chao Li
+ *  Email:forward.li.kth@gmail.com
+ *  Blog: http://forwardkth.github.io/
  */
 
 #include "BlackServo.h"
@@ -15,10 +15,10 @@ namespace BlackLib{
 
 BlackServo::BlackServo(pwmName pwmPin)
     : BlackPWM(pwmPin),
-	  max_ms(2.4),
-	  min_ms(0.5),
-	  pwmFreq(50),
-	  period(1000.0 / pwmFreq) {
+      max_ms(2.4),
+      min_ms(0.5),
+      pwmFreq(50),
+      period(1000.0 / pwmFreq) {
   this -> setDutyPercent(0.0);
   this -> setPeriodTime(20, milisecond);
 }
