@@ -7,6 +7,10 @@ And here is the WPF UI controller: https://github.com/forwardkth/robot_WPF_UI
 
 -------------------------------------------------------------
 ![](http://ww4.sinaimg.cn/mw1024/74505a4cjw1f15bm3c82lj218g0xcqku.jpg)
+![](https://wx4.sinaimg.cn/mw1024/74505a4cgy1fpvirumai6j23402c0e82.jpg)
+![](https://wx2.sinaimg.cn/mw1024/74505a4cgy1fpvish1t10j23402c0kjm.jpg)
+![](https://wx1.sinaimg.cn/mw1024/74505a4cgy1fpvis7nq6vj23402c0e82.jpg)
+![](https://wx2.sinaimg.cn/mw1024/74505a4cgy1fpvira0vdvj21hw0sqk1f.jpg)
 -------------------------------------------------------------
 
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
