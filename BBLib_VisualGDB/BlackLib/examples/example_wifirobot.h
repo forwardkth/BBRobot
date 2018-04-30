@@ -30,7 +30,6 @@ using namespace BlackLib;
 
 const std::string TCP_ADDR("192.168.1.79");
 const int TCP_PORT_RX = 2002;
-const int TCP_PORT_TX = 2003;
 int laser_status = 0;
 int servoxy_angle = 82;
 int servoz_angle = 10;
@@ -84,19 +83,18 @@ class TCPReceiverThread : public BlackThread {
       exit(1);
     }
     // start listening and the max client number is 5
+    std::cout << "TCP RX Listening..." << std::endl;
     rc = listen(serverSocket, 100);
     if (rc == -1) {
       std::cout << "listen failed!" << std::endl;
       exit(1);
     } else {
-      std::cout << "listening........" << std::endl; // waiting for a connection
+      std::cout << "TCP RX socket connected!" << std::endl; // waiting for a connection
     }
 
     int sock;
     int clientAddrSize = sizeof(struct sockaddr_in);
-    //std::cout << "read!"<<"  "<<order<< std::endl;
-    //std::cout << "zangle!"<<"  "<<zangle<< std::endl;
-    //std::cout << "xyangle!"<<"  "<<xyangle<< std::endl; 
+
     while (true) { //TCP_receive thread loop
       sock = accept(serverSocket,
                     (struct sockaddr*) &clientAddr,
@@ -190,7 +188,7 @@ class TCPReceiverThread : public BlackThread {
       this->msleep(10);
     }
     close(sock);
-    //std::cout << "socket closed!" << std::endl;               
+    //std::cout << "TCP Rsocket closed!" << std::endl;               
   } 
   return;       
 }
@@ -206,42 +204,6 @@ class TCPReceiverThread : public BlackThread {
   BlackGPIO gpio1_14;
   BlackGPIO gpio1_15;
   BlackGPIO gpio1_6;
-};
-
-// TCP thread for cmd receiving and execution
-class TCPSenderThread : public BlackLib::BlackThread {
- public:
-  TCPSenderThread() {};
-  void onStartHandler() { //Runnable
-    struct sockaddr_in serverAddr;
-    struct sockaddr_in clientAddr;
-    int port = TCP_PORT_TX;   // TCP server TX port
-    int serverSocket = socket(AF_INET, SOCK_STREAM, 0); // creat and initialize a socket
-    int val = 1; // optional setting，try to avoid the server can not be restart quickly
-    setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
-    serverAddr.sin_family = AF_INET; // define the listening port and address
-    serverAddr.sin_port = htons(port);
-    serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    memset(&(serverAddr.sin_zero), 0, 8);
-    int rc = bind(serverSocket, (struct sockaddr*) &serverAddr,
-        sizeof(struct sockaddr));
-    if (rc == -1) {
-        std::cout << "bind failed!" << std::endl;
-        exit(1);
-    }
-        // start listening and the max client number is 5
-        rc = listen(serverSocket, 100);
-        if (rc == -1) {
-            std::cout << "listen failed!" << std::endl;
-            exit(1);
-        }
-
-        // waiting for a connection
-        int sock;
-        int clientAddrSize = sizeof(struct sockaddr_in);
-        std::cout << "TCP TX socket created!" << std::endl;
-    }
-
 };
 
 // Ultra sound thread for distance detection
