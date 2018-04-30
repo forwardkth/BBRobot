@@ -30,21 +30,21 @@
 using namespace BlackLib;
 
 namespace WiFiRobot {
-	// TCP thread for order receiver and execution
+    // TCP thread for order receiver and execution
 class TCPReceiverThread : public BlackThread {
  public:
   void onStartHandler(); //Thread runnable
-		
+        
   TCPReceiverThread(BlackServo &XY,
-			        BlackServo &Z,
-			        int &laser_status,
-			        int &servoxy_angle,
-			        int &servoz_angle,
-			        BlackGPIO &io1_12,
-			        BlackGPIO &io1_13,
-			        BlackGPIO &io1_14,
-			        BlackGPIO &io1_15,
-			        BlackGPIO &io1_6);
+                    BlackServo &Z,
+                    int &laser_status,
+                    int &servoxy_angle,
+                    int &servoz_angle,
+                    BlackGPIO &io1_12,
+                    BlackGPIO &io1_13,
+                    BlackGPIO &io1_14,
+                    BlackGPIO &io1_15,
+                    BlackGPIO &io1_6);
   ~TCPReceiverThread();
 
  private:
