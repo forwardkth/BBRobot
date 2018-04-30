@@ -74,13 +74,13 @@
     <ClCompile Include="WiFiRobot\WiFiRobotTCPSenderThread.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="WiFiRobot\ExampleMain.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="WiFiRobot\WiFiRobotMain.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="WiFiRobot\WiFiRobotUltraSoundThread.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackLib\examples\ExampleMain.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
