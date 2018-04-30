@@ -62,7 +62,7 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
                                                  GPIO1_14,
                                                  GPIO1_15,
                                                  GPIO1_6);
-  rev->run(); //Run TCP_TX thread
+  rev->run(); //Run TCP_RX thread
 
   while (1) { //main loop
     usleep(100);
