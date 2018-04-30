@@ -10,10 +10,9 @@
 // Project introduction:  http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/
 
 #include <iostream>
-#include "../blacklib/blacklib.h"
-#include "../blacklib/blackservo/blackservo.h"
-#include "../blacklib/blackgpio/blackgpio.h"
-#include "../blacklib/blackuart/blackuart.h"
+#include "WiFiRobotUltraSoundThread.h"
+#include "WiFiRobotTCPReceiverThread.h"
+#include "WiFiRobotTCPSenderThread.h"
 
 using namespace BlackLib;
 
@@ -25,8 +24,57 @@ int lowlen = 0;
 int highlen = 0;
 
 using namespace std;
+using namespace BlackLib;
+using namespace WiFiRobot;
 
 int main(int argc, char **argv) { // this is the main function for the wifirobot project
+  //robot PLZ init
+  BlackServo servoXY(BlackLib::EHRPWM1B);
+  BlackServo servoZ(BlackLib::EHRPWM2B);
+  servoXY.write_angle(servoxy_angle);
+  servoZ.write_angle(servoz_angle);
+  BlackLib::BlackThread::sleep(1);
+  servoXY.ReleasePWM();
+  servoZ.ReleasePWM();
+  // robot motor init
+  BlackLib::BlackGPIO GPIO1_12 (BlackLib::GPIO_44, BlackLib::output, BlackLib::SecureMode);
+  BlackLib::BlackGPIO GPIO1_13 (BlackLib::GPIO_45, BlackLib::output, BlackLib::SecureMode);
+  BlackLib::BlackGPIO GPIO1_14 (BlackLib::GPIO_46, BlackLib::output, BlackLib::SecureMode);
+  BlackLib::BlackGPIO GPIO1_15 (BlackLib::GPIO_47, BlackLib::output, BlackLib::SecureMode);
+  // robot laser init
+  BlackLib::BlackGPIO GPIO1_6 (BlackLib::GPIO_38, BlackLib::output, BlackLib::SecureMode);
+  //robot ultra sound init
+  BlackLib::BlackUART Usound_serial(BlackLib::UART2,
+                                    BlackLib::Baud9600,
+                                    BlackLib::ParityNo, //this setting is very important
+                                    BlackLib::StopOne,
+                                    BlackLib::Char8);
+  //start UltraSound thread
+  UltraSound *ultras = new UltraSound(Usound_serial, ultra_distance, lowlen, highlen);
+  ultras->run();
+  //start TCP_RX thread
+  TCPReceiverThread *rev = new TCPReceiverThread(servoXY, servoZ,
+                                                 laser_status,
+                                                 servoxy_angle,
+                                                 servoz_angle,
+                                                 GPIO1_12,
+                                                 GPIO1_13,
+                                                 GPIO1_14,
+                                                 GPIO1_15,
+                                                 GPIO1_6);
+  rev->run(); //Run TCP_TX thread
 
+  while (1) { //main loop
+    usleep(100);
+    if (ultras->isFinished()) {
+      delete ultras;
+      ultras = nullptr;
+      break;
+    } else if (rev->isFinished()) {
+      delete rev;
+      rev = nullptr;
+      break;
+    }
+  }
   return 0;
 }
