@@ -63,7 +63,6 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
                                       highlen,
                                       UltrasMutex);
   ultras->run();
-  std::cout << "Ultra sound Thread started!" <<std::endl;
   //start TCP_RX thread
   TCPReceiverThread *rev = new TCPReceiverThread(servoXY, servoZ,
                                                  laser_status,
@@ -78,7 +77,6 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
                                                  GPIO1_6,
                                                  TCPRevMutex);
   rev->run(); //Run TCP_RX thread
-  std::cout << "TCP Receiver Thread started!" <<std::endl;
 
   while (1) { //main loop
     usleep(100);

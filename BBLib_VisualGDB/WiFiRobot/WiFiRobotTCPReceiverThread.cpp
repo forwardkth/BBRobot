@@ -40,7 +40,9 @@ TCPReceiverThread::TCPReceiverThread(BlackServo &XY,
       gpio1_14(io1_14),
       gpio1_15(io1_15),
       gpio1_6(io1_6),
-      servoangleMutex(servoMutex) { }
+      servoangleMutex(servoMutex) {
+  std::cout << "TCP Receiver Thread started!" <<std::endl;
+}
 
 TCPReceiverThread::~TCPReceiverThread() { }
 
@@ -63,13 +65,12 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
     exit(1);
   }
   // start listening and the max client number is 5
-  std::cout << "listening........" << std::endl;
   rc = listen(serverSocket, 100);
   if (rc == -1) {
   std::cout << "listen failed!" << std::endl;
   exit(1);
   } else {
-    std::cout << "TCP RX socket connected!" << std::endl; // waiting for a connection
+    std::cout << "listening........" << std::endl; // waiting for a connection
   }
   int sock;
   int clientAddrSize = sizeof(struct sockaddr_in);
@@ -82,16 +83,16 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
     recv(sock, &order, 1, 0);
     //std::cout << "received order" << "  " << order << std::endl;
     if (order) {
-      if (order == '5') { //PLZ UP
+      if (order == '5') { //PTZ UP
         if (zangle <= 78) {
           zangle += 2;
           z.write_angle(zangle);
-          z.ReleasePWM();
           if( servoangleMutex -> tryLock() ) { // nonblock lock
             protected_servoz_angle = zangle; //Sync between threads
             servoangleMutex -> unlock();
           }
           this->msleep(500);
+          z.ReleasePWM();
         } else if (zangle > 80) {
           zangle = 80;
           if( servoangleMutex -> tryLock() ) { // nonblock lock
@@ -99,7 +100,7 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
             servoangleMutex -> unlock();
           }
         }
-      } else if (order == '6') { //PLZ DOWN
+      } else if (order == '6') { //PTZ DOWN
         if (zangle >= 12) {
           zangle -= 2;
           z.write_angle(zangle);
@@ -119,13 +120,13 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
       } else if (order == '7') { //PLZ LEFT
         if (xyangle >= 42) {
           xyangle -= 2;
-          xy.write_angle(xyangle);
-          xy.ReleasePWM();
+          xy.write_angle(xyangle);        
           if( servoangleMutex -> tryLock() ) { // nonblock lock
             protected_servoxy_angle = xyangle; //Sync between threads
             servoangleMutex -> unlock();
           }
           this->msleep(500);
+          xy.ReleasePWM();
         } else if (xyangle < 40) {
           xyangle = 40;
           if( servoangleMutex -> tryLock() ) { // nonblock lock
@@ -133,16 +134,16 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
             servoangleMutex -> unlock();
           }
         }
-      } else if (order == '8') { //PLZ RIGHT
+      } else if (order == '8') { //PTZ RIGHT
         if (xyangle <= 132) {
           xyangle += 2;
-          xy.write_angle(xyangle);
-          xy.ReleasePWM();
+          xy.write_angle(xyangle);         
           if( servoangleMutex -> tryLock() ) { // nonblock lock
             protected_servoxy_angle = xyangle; //Sync between threads
             servoangleMutex -> unlock();
           }
           this->msleep(500);
+          xy.ReleasePWM();
         } else if (xyangle > 134) {
            xyangle = 134;
           if( servoangleMutex -> tryLock() ) { // nonblock lock
@@ -150,9 +151,9 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
             servoangleMutex -> unlock();
           }
          }
-      } else if (order == '9') { //RESET PLZ
+      } else if (order == '9') { //RESET PTZ
         xyangle = 82;
-        zangle = 10;
+        zangle = 15;
         z.write_angle(10);
         xy.write_angle(82);
         if( servoangleMutex -> tryLock() ) { // nonblock lock
@@ -160,9 +161,9 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
           protected_servoz_angle = zangle; 
           servoangleMutex -> unlock();
         }
+        this->msleep(500);
         xy.ReleasePWM();
         z.ReleasePWM();
-        this->msleep(500);
       } else if (order == '0') { //motor stop
         gpio1_13.setValue(low);
         gpio1_12.setValue(low);

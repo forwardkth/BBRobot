@@ -24,7 +24,9 @@ UltraSound::UltraSound(BlackUART &serial,
       rangeProtected(mutex_ultra_distance),
       Lowlen(low),
       Highlen(high),
-      rangeMutex(distanceMutex) { }
+      rangeMutex(distanceMutex) {
+  std::cout << "Ultra sound Thread started!" <<std::endl;
+}
 
 UltraSound::~UltraSound() { }
 
