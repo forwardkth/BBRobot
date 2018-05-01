@@ -14,7 +14,9 @@
 #include "WiFiRobotTCPReceiverThread.h"
 #include "WiFiRobotTCPSenderThread.h"
 
+using namespace std;
 using namespace BlackLib;
+using namespace WiFiRobot;
 
 int laser_status = 0;
 int servoxy_angle = 82;
@@ -22,10 +24,6 @@ int servoz_angle = 10;
 int ultra_distance = 100;
 int lowlen = 0;
 int highlen = 0;
-
-using namespace std;
-using namespace BlackLib;
-using namespace WiFiRobot;
 
 int main(int argc, char **argv) { // this is the main function for the wifirobot project
   //robot PLZ init
