@@ -30,19 +30,23 @@ You can run the examples with the ExampleMain.cpp or run the formal project with
 
 Historical project update:
 
-2015.10.25 Modification to the class of BalckPWM
-           Add Servo motor control class "BlackServo"
-		   Add Servo control demo code under /BlackLib/examples folder
-		   Add demo WiFi robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
-		   Add Video streaming code
+2015
+1. Modification to the class of BalckPWM
+2. Add Servo motor control class "BlackServo"
+3. Add Servo control demo code under /BlackLib/examples folder
+4. Add demo WiFi robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
+5. Add Video streaming code
 		   
-2016       New remote control UI with C sharp and WPF
-           iOS APP for WiFi Robot remote control
+2016       
+1. New remote control UI with C sharp and WPF
+2. iOS APP for WiFi Robot remote control
 		   
-2017       Start working with the Computer Vision based remote controller for the WiFiRobot (ongoing...)
+2017       
+1. Start working with the Computer Vision based remote controller for the WiFiRobot (ongoing...)
     
-2018       Add formal WiFi robot project code under "BBLib_VisualGDB/WiFiRobot/"
-           Add Json support for Multiple sensor data transmission
+2018       
+1. Add formal WiFi robot project code under "BBLib_VisualGDB/WiFiRobot/"
+2. Add Json support for Multiple sensor data transmission
 
 The picture below shows the visualGDB configuration with VS2015 for cross complie and remote debug and deploy
 http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
