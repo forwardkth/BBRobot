@@ -24,10 +24,25 @@ My Modification to the original Blacklib recently are:
 1. Modification to the class of BalckPWM
 2. Implement the BlackServo class for easier Servo control like "PyBBIO"
 3. Add Servo control example code (example_Servo.h) under /BlackLib/examples folder
-4. Add my WIFI robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
+4. Add demo WIFI robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
 
-You can find the formal WifiRobot source files under project folder "BBLib_VisualGDB/WiFiRobot/"
 You can run the examples with the ExampleMain.cpp or run the formal project with WiFiRobotMain.cpp
+
+Historical project update:
+
+2015.10.25 Modification to the class of BalckPWM
+           Add Servo motor control class "BlackServo"
+		   Add Servo control demo code under /BlackLib/examples folder
+		   Add demo WiFi robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
+		   Add Video streaming code
+		   
+2016       New remote control UI with C sharp and WPF
+           iOS APP for WiFi Robot remote control
+		   
+2017       Start working with the Computer Vision based remote controller for the WiFiRobot (ongoing...)
+    
+2018       Add formal WiFi robot project code under "BBLib_VisualGDB/WiFiRobot/"
+           Add Json support for Multiple sensor data transmission
 
 The picture below shows the visualGDB configuration with VS2015 for cross complie and remote debug and deploy
 http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
