@@ -40,11 +40,14 @@ class TCPReceiverThread : public BlackThread {
                     int &laser_status,
                     int &servoxy_angle,
                     int &servoz_angle,
+                    int &mutex_servoxy_angle,
+                    int &mutex_servoz_angle,
                     BlackGPIO &io1_12,
                     BlackGPIO &io1_13,
                     BlackGPIO &io1_14,
                     BlackGPIO &io1_15,
-                    BlackGPIO &io1_6);
+                    BlackGPIO &io1_6,
+                    BlackMutex* &servoMutex);
   ~TCPReceiverThread();
 
  private:
@@ -53,11 +56,14 @@ class TCPReceiverThread : public BlackThread {
   int &laser;
   int &xyangle;
   int &zangle;
+  int &protected_servoxy_angle;
+  int &protected_servoz_angle;
   BlackGPIO gpio1_12;
   BlackGPIO gpio1_13;
   BlackGPIO gpio1_14;
   BlackGPIO gpio1_15;
   BlackGPIO gpio1_6;
+  BlackMutex* &servoangleMutex;
 };
 
 } //namespace WiFiRobot

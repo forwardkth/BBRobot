@@ -21,20 +21,26 @@ TCPReceiverThread::TCPReceiverThread(BlackServo &XY,
                                      int &laser_status,
                                      int &servoxy_angle,
                                      int &servoz_angle,
+                                     int &mutex_servoxy_angle,
+                                     int &mutex_servoz_angle,
                                      BlackGPIO &io1_12,
                                      BlackGPIO &io1_13,
                                      BlackGPIO &io1_14,
                                      BlackGPIO &io1_15,
-                                     BlackGPIO &io1_6)
+                                     BlackGPIO &io1_6,
+                                     BlackMutex* &servoMutex)
     : xy(XY), z(Z),
       laser(laser_status),
       xyangle(servoxy_angle),
       zangle(servoz_angle),
+      protected_servoxy_angle(mutex_servoxy_angle),
+      protected_servoz_angle(mutex_servoz_angle),
       gpio1_12(io1_12),
       gpio1_13(io1_13),
       gpio1_14(io1_14),
       gpio1_15(io1_15),
-      gpio1_6(io1_6) { }
+      gpio1_6(io1_6),
+      servoangleMutex(servoMutex) { }
 
 TCPReceiverThread::~TCPReceiverThread() { }
 
@@ -74,49 +80,88 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
                   (socklen_t*)&clientAddrSize);
     char order;
     recv(sock, &order, 1, 0);
-    std::cout << "received order" << "  " << order << std::endl;
+    //std::cout << "received order" << "  " << order << std::endl;
     if (order) {
       if (order == '5') { //PLZ UP
         if (zangle <= 78) {
           zangle += 2;
           z.write_angle(zangle);
-          this->msleep(500);
           z.ReleasePWM();
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoz_angle = zangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
+          this->msleep(500);
         } else if (zangle > 80) {
           zangle = 80;
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoz_angle = zangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
         }
       } else if (order == '6') { //PLZ DOWN
         if (zangle >= 12) {
           zangle -= 2;
           z.write_angle(zangle);
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoz_angle = zangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
           this->msleep(500);
           z.ReleasePWM();
         } else if (zangle < 10) {
           zangle = 10;
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoz_angle = zangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
         }
       } else if (order == '7') { //PLZ LEFT
         if (xyangle >= 42) {
           xyangle -= 2;
           xy.write_angle(xyangle);
-          this->msleep(500);
           xy.ReleasePWM();
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoxy_angle = xyangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
+          this->msleep(500);
         } else if (xyangle < 40) {
           xyangle = 40;
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoxy_angle = xyangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
         }
       } else if (order == '8') { //PLZ RIGHT
         if (xyangle <= 132) {
           xyangle += 2;
           xy.write_angle(xyangle);
-          this->msleep(500);
           xy.ReleasePWM();
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoxy_angle = xyangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
+          this->msleep(500);
         } else if (xyangle > 134) {
            xyangle = 134;
+          if( servoangleMutex -> tryLock() ) { // nonblock lock
+            protected_servoxy_angle = xyangle; //Sync between threads
+            servoangleMutex -> unlock();
+          }
          }
       } else if (order == '9') { //RESET PLZ
         xyangle = 82;
         zangle = 10;
         z.write_angle(10);
         xy.write_angle(82);
+        if( servoangleMutex -> tryLock() ) { // nonblock lock
+          protected_servoxy_angle = xyangle; //Sync between threads
+          protected_servoz_angle = zangle; 
+          servoangleMutex -> unlock();
+        }
+        xy.ReleasePWM();
+        z.ReleasePWM();
         this->msleep(500);
       } else if (order == '0') { //motor stop
         gpio1_13.setValue(low);

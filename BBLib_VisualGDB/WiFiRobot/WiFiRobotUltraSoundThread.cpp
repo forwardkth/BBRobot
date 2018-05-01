@@ -15,12 +15,16 @@ namespace WiFiRobot {
 
 UltraSound::UltraSound(BlackUART &serial,
                        int &distance,
+                       int &mutex_ultra_distance,
                        int &low,
-                       int &high)
+                       int &high,
+                       BlackMutex* &distanceMutex)
     : uart(serial),
       range(distance),
+      rangeProtected(mutex_ultra_distance),
       Lowlen(low),
-      Highlen(high) { }
+      Highlen(high),
+      rangeMutex(distanceMutex) { }
 
 UltraSound::~UltraSound() { }
 
@@ -28,7 +32,7 @@ void UltraSound::onStartHandler() {
   uart.setReadBufferSize(16);
   if (uart.open(BlackLib::ReadWrite)) {
     std::cout << std::endl;
-    std::cout << "Device Path     : " << uart.getPortName() << std::endl;
+    std::cout << "Ultrasound Device Path     : " << uart.getPortName() << std::endl;
     std::cout << "Read Buf. Size  : " << uart.getReadBufferSize() << std::endl;
     std::cout << "BaudRate In/Out : " << uart.getBaudRate(BlackLib::input) << "/"
               << uart.getBaudRate(BlackLib::output) << std::endl;
@@ -48,7 +52,11 @@ void UltraSound::onStartHandler() {
       Highlen = (int)readArr[0];
       Lowlen = (int)readArr[1];
       range = Highlen * 256 + Lowlen;
-      std::cout<< "distance forward: "<<range<<std::endl;
+      if( rangeMutex -> tryLock() ) { // nonblock lock
+        rangeProtected = range; //Sync between threads
+        rangeMutex -> unlock();
+      }
+      //std::cout<< "distance forward: "<<range<<std::endl;
     }
     return;
   }
