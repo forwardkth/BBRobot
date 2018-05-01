@@ -1,5 +1,5 @@
-//  WiFiRobotTCPSenderThread
-//  Class WiFiRobotTCPSenderThread (TCP socket contection and TX thread)
+//  WiFiRobotTCPSenderThread.h
+//  Class WiFiRobotTCPSenderThread (TCP socket contection and TX thread) that sends Json format sensors data package to host PC
 //  This is my Remote operation Robot project based on Beaglebone and Debian Linux.
 //  Created on: April 29, 2018
 //  Author: Chao Li
@@ -21,20 +21,35 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <unistd.h>
+#include "WiFiRobotjson.h"
 #include "../blacklib/blacklib.h"
 #include "../BlackLib/BlackThread/BlackThread.h"
 #include "../BlackLib/BlackMutex/BlackMutex.h"
 
+using namespace std;
+using json = nlohmann::json; //add Json support
 using namespace BlackLib;
+
 
 namespace WiFiRobot {
 // TCP thread for order receiver and execution
 class TCPSenderThread : public BlackLib::BlackThread {
  public:
-  void onStartHandler();// To be implemented
+  void onStartHandler();// runnable
 
-  TCPSenderThread();
+  TCPSenderThread(int &mutex_ultra_distance, // Ultrasonic sensor data
+                  int &mutex_servoxy_angle, // Servo motor XY axis angle
+                  int &mutex_servoz_angle,  // Servo motor Z axis angle
+                  BlackMutex* &distanceMutex,
+                  BlackMutex* &servoMutex);
   ~TCPSenderThread();
+
+ private:
+  int &rangeProtected;
+  int &protected_servoxy_angle;
+  int &protected_servoz_angle;
+  BlackMutex* &servoangleMutex;
+  BlackMutex* &rangeMutex;
 };
 
 } //namespace WiFiRobot

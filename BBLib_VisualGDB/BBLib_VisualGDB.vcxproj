@@ -180,7 +180,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <ClCompile>
       <PreprocessorDefinitions>DEBUG;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CPPLanguageStandard>CPP11</CPPLanguageStandard>
+      <CPPLanguageStandard>GNUPP11</CPPLanguageStandard>
       <AdditionalOptions>
       </AdditionalOptions>
       <Optimization>O3</Optimization>

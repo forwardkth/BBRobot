@@ -10,9 +10,26 @@
 
 #include "WiFiRobotTCPSenderThread.h"
 
+const std::string TCP_ADDR_TX("192.168.1.79");
 const int TCP_PORT_TX = 2003; //Listen on Port 2003 for TCP TX
+json sensorDataPackage;
 
 namespace WiFiRobot {
+
+TCPSenderThread::TCPSenderThread(int &mutex_ultra_distance, // Ultrasonic sensor data
+                  int &mutex_servoxy_angle, // Servo motor XY axis angle
+                  int &mutex_servoz_angle,  // Servo motor Z axis angle
+                  BlackMutex* &distanceMutex,
+                  BlackMutex* &servoMutex)
+    : rangeProtected(mutex_ultra_distance),
+      protected_servoxy_angle(mutex_servoxy_angle),
+      protected_servoz_angle(mutex_servoz_angle),
+      rangeMutex(distanceMutex),
+      servoangleMutex(servoMutex) {
+  std::cout << "TCP Sender Thread started!" <<std::endl;
+}
+
+TCPSenderThread::~TCPSenderThread() { }
 
 void TCPSenderThread:: onStartHandler() {
   struct sockaddr_in serverAddr;
@@ -23,30 +40,47 @@ void TCPSenderThread:: onStartHandler() {
   setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
   serverAddr.sin_family = AF_INET; // define the listening port and address
   serverAddr.sin_port = htons(port);
-  serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+  serverAddr.sin_addr.s_addr = inet_addr(TCP_ADDR_TX.data());//htonl(INADDR_ANY);
   memset(&(serverAddr.sin_zero), 0, 8);
   int rc = bind(serverSocket, 
                 (struct sockaddr*) &serverAddr,
                 sizeof(struct sockaddr));
-    if (rc == -1) {
-        std::cout << "bind failed!" << std::endl;
-        exit(1);
+  if (rc == -1) {
+    std::cout << "bind failed!" << std::endl;
+    exit(1);
+  }
+  // start listening and the max client number is 100
+  rc = listen(serverSocket, 100);
+  if (rc == -1) {
+    std::cout << "listen failed!" << std::endl;
+    exit(1);
+  } else {
+    std::cout << "TCP TX Thread Listening on port: " << TCP_PORT_TX <<std::endl;// waiting for a connection
+  }
+  int sock = 0;
+  int clientAddrSize = sizeof(struct sockaddr_in);
+ 
+  while (true) {
+    sock = accept(serverSocket,
+                  (struct sockaddr*) &clientAddr,
+                  (socklen_t*)&clientAddrSize);
+    if(servoangleMutex -> lock()) { //block lock
+      sensorDataPackage["servoAngle"] = { {"XY",protected_servoxy_angle}, //Servo angle data
+                                          {"Z", protected_servoz_angle} } ;
+      servoangleMutex -> unlock();
     }
-        // start listening and the max client number is 5
-        std::cout << "TCP TX Listening..." << std::endl;
-        rc = listen(serverSocket, 100);
-        if (rc == -1) {
-            std::cout << "listen failed!" << std::endl;
-            exit(1);
-    } else {
-      std::cout << "TCP TX socket connected!"  << std::endl; // waiting for a connection
+    if(rangeMutex -> lock()) { //block lock
+      sensorDataPackage["forwardDistance"] = rangeProtected; //Ultra sonic sensor data
+      rangeMutex -> unlock();
     }
-    int sock;
-    int clientAddrSize = sizeof(struct sockaddr_in);
-    // To be continue...
+  
+    std::string s = sensorDataPackage.dump();
+    send(sock, s.data(), strlen(s.data()), 0);
+    std::cout << s.data() << std::endl;
+    //close(sock);
+    this->msleep(50);
+  }
+  return;
 }
-
-TCPSenderThread::TCPSenderThread() { }
-TCPSenderThread::~TCPSenderThread() { }
 
 } // namespace WiFiRobot

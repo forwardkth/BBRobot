@@ -32,8 +32,10 @@ BlackLib::BlackMutex *TCPRevMutex;
 BlackLib::BlackMutex *UltrasMutex;
 
 int main(int argc, char **argv) { // this is the main function for the wifirobot project
+  //Init Mutex
   UltrasMutex = new BlackLib::BlackMutex();
   TCPRevMutex = new BlackLib::BlackMutex();
+
   //robot PLZ init
   BlackServo servoXY(BlackLib::EHRPWM1B);
   BlackServo servoZ(BlackLib::EHRPWM2B);
@@ -42,6 +44,7 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
   BlackLib::BlackThread::sleep(1);
   servoXY.ReleasePWM();
   servoZ.ReleasePWM();
+
   // robot motor init
   BlackLib::BlackGPIO GPIO1_12 (BlackLib::GPIO_44, BlackLib::output, BlackLib::SecureMode);
   BlackLib::BlackGPIO GPIO1_13 (BlackLib::GPIO_45, BlackLib::output, BlackLib::SecureMode);
@@ -64,7 +67,8 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
                                       UltrasMutex);
   ultras->run();
   //start TCP_RX thread
-  TCPReceiverThread *rev = new TCPReceiverThread(servoXY, servoZ,
+  TCPReceiverThread *rev = new TCPReceiverThread(servoXY,
+                                                 servoZ,
                                                  laser_status,
                                                  servoxy_angle,
                                                  servoz_angle,
@@ -77,6 +81,14 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
                                                  GPIO1_6,
                                                  TCPRevMutex);
   rev->run(); //Run TCP_RX thread
+
+  //start TCP_TX thread
+  TCPSenderThread *sender = new TCPSenderThread(mutex_ultra_distance,
+                                                mutex_servoxy_angle,
+                                                mutex_servoz_angle,
+                                                UltrasMutex,
+                                                TCPRevMutex);
+  sender->run(); //Run TCP_TX thread
 
   while (1) { //main loop
     usleep(100);

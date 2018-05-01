@@ -11,7 +11,7 @@
 
 #include "WiFiRobotTCPReceiverThread.h"
 
-const std::string TCP_ADDR("192.168.1.79");
+const std::string TCP_ADDR_RX("192.168.1.79");
 const int TCP_PORT_RX = 2002;
 
 namespace WiFiRobot {
@@ -56,7 +56,7 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
   // define the listening port and address
   serverAddr.sin_family = AF_INET;
   serverAddr.sin_port = htons(port);
-  serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+  serverAddr.sin_addr.s_addr = inet_addr(TCP_ADDR_RX.data());//htonl(INADDR_ANY);
   memset(&(serverAddr.sin_zero), 0, 8);
   int rc = bind(serverSocket, (struct sockaddr*) &serverAddr,
                 sizeof(struct sockaddr));
@@ -64,15 +64,15 @@ void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
     std::cout << "bind failed!" << std::endl;
     exit(1);
   }
-  // start listening and the max client number is 5
+  // start listening and the max client number is 100
   rc = listen(serverSocket, 100);
   if (rc == -1) {
-  std::cout << "listen failed!" << std::endl;
-  exit(1);
+    std::cout << "listen failed!" << std::endl;
+    exit(1);
   } else {
-    std::cout << "listening........" << std::endl; // waiting for a connection
+    std::cout << "TCP RX Thread listening on port: " << TCP_PORT_RX << std::endl; // waiting for a connection
   }
-  int sock;
+  int sock = 0;
   int clientAddrSize = sizeof(struct sockaddr_in);
   
   while (true) {
