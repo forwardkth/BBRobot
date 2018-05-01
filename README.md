@@ -28,10 +28,10 @@ My Modification to the original Blacklib recently are:
 
 You can run the examples with the ExampleMain.cpp or run the formal project with WiFiRobotMain.cpp
 
-Historical project update:
+Historical project updates:
 
 2015
-1. Modification to the class of BalckPWM
+1. Modification to the class BalckPWM
 2. Add Servo motor control class "BlackServo"
 3. Add Servo control demo code under /BlackLib/examples folder
 4. Add demo WiFi robot code (example_wifirobot.h) as a example under /BlackLib/examples folder
