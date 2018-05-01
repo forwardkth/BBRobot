@@ -248,6 +248,7 @@
     <ClInclude Include="BlackLib\examples\example_time.h" />
     <ClInclude Include="BlackLib\examples\example_UART.h" />
     <ClInclude Include="BlackLib\examples\example_wifirobot.h" />
+    <ClInclude Include="WiFiRobot\WiFiRobotJson.h" />
     <ClInclude Include="WiFiRobot\WiFiRobotTCPReceiverThread.h" />
     <ClInclude Include="WiFiRobot\WiFiRobotTCPSenderThread.h" />
     <ClInclude Include="WiFiRobot\WiFiRobotUltraSoundThread.h" />

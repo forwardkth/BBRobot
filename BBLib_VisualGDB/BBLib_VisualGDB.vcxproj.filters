@@ -172,5 +172,8 @@
     <ClInclude Include="WiFiRobot\WiFiRobotUltraSoundThread.h">
       <Filter>project Header files</Filter>
     </ClInclude>
+    <ClInclude Include="WiFiRobot\WiFiRobotJson.h">
+      <Filter>project Header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
