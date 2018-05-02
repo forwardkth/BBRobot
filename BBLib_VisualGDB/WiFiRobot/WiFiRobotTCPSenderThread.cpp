@@ -75,10 +75,11 @@ void TCPSenderThread:: onStartHandler() {
     }
   
     std::string s = sensorDataPackage.dump();
-    send(sock, s.data(), strlen(s.data()), 0);
-    std::cout << s.data() << std::endl;
-    //close(sock);
-    this->msleep(50);
+    size_t num = send(sock, s.data(), strlen(s.data()), 0);
+    //std::cout << "send char: " << num << std::endl;
+    //std::cout << s.data() << std::endl;
+    close(sock);
+    this->msleep(500);
   }
   return;
 }
