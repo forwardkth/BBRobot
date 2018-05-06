@@ -95,11 +95,13 @@ int main(int argc, char **argv) { // this is the main function for the wifirobot
     if (ultras->isFinished()) {
       delete ultras;
       ultras = nullptr;
+      std::ios::sync_with_stdio(false);
       std::cout << "Ultra sound Thread destroyed!" <<std::endl;
       break;
     } else if (rev->isFinished()) {
       delete rev;
       rev = nullptr;
+      std::ios::sync_with_stdio(false);
       std::cout << "TCP Receiver Thread destroyed!" <<std::endl;
       break;
     }

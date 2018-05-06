@@ -25,6 +25,7 @@ UltraSound::UltraSound(BlackUART &serial,
       Lowlen(low),
       Highlen(high),
       rangeMutex(distanceMutex) {
+  std::ios::sync_with_stdio(false);
   std::cout << "Ultra sound Thread started!" <<std::endl;
 }
 
@@ -33,6 +34,7 @@ UltraSound::~UltraSound() { }
 void UltraSound::onStartHandler() {
   uart.setReadBufferSize(16);
   if (uart.open(BlackLib::ReadWrite)) {
+    std::ios::sync_with_stdio(false);
     std::cout << std::endl;
     std::cout << "Ultrasound Device Path     : " << uart.getPortName() << std::endl;
     std::cout << "Read Buf. Size  : " << uart.getReadBufferSize() << std::endl;

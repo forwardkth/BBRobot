@@ -26,12 +26,14 @@ TCPSenderThread::TCPSenderThread(int &mutex_ultra_distance, // Ultrasonic sensor
       protected_servoz_angle(mutex_servoz_angle),
       rangeMutex(distanceMutex),
       servoangleMutex(servoMutex) {
+  std::ios::sync_with_stdio(false);
   std::cout << "TCP Sender Thread started!" <<std::endl;
 }
 
 TCPSenderThread::~TCPSenderThread() { }
 
 void TCPSenderThread:: onStartHandler() {
+  std::ios::sync_with_stdio(false);
   struct sockaddr_in serverAddr;
   struct sockaddr_in clientAddr;
   int port = TCP_PORT_TX;   // TCP server TX port

@@ -41,12 +41,14 @@ TCPReceiverThread::TCPReceiverThread(BlackServo &XY,
       gpio1_15(io1_15),
       gpio1_6(io1_6),
       servoangleMutex(servoMutex) {
+  std::ios::sync_with_stdio(false);
   std::cout << "TCP Receiver Thread started!" <<std::endl;
 }
 
 TCPReceiverThread::~TCPReceiverThread() { }
 
 void TCPReceiverThread::onStartHandler() { //TCP ReceiverThread Runnable
+  std::ios::sync_with_stdio(false);
   struct sockaddr_in serverAddr;
   struct sockaddr_in clientAddr;
   int port = TCP_PORT_RX;   // TCP server port
