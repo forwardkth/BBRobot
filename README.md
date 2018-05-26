@@ -1,7 +1,7 @@
-# BBRobot_VisualGDB
-This is a VS2017 C++ project with VisualGDB configuration for My Beaglebone WIFI robot project based on modified "Blacklib" running on Debian Linux. 
+# BBRobot
+This is My Beaglebone WiFi robot project based on modified version of the "Blacklib" running on Debian Linux for Beaglebone board. 
 
-Here you can find the Remote autonomous controller project for this robot here: https://github.com/forwardkth/BBRobot_OpenCV
+Here you can find the Remote controller project for this robot here: https://github.com/forwardkth/BBRobotController_CV_DL_SF
 
 And here is the WPF UI controller: https://github.com/forwardkth/robot_WPF_UI
 
