@@ -16,8 +16,6 @@ And here is the WPF UI controller: https://github.com/forwardkth/robot_WPF_UI
 My Blog about this project: http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/ 
 
 -------------------------------------------------------------
-The Wifi Robot project on windows platform can be found here: https://github.com/forwardkth/BBRobot_VisualGDB
-You can find the same robot project under linux with Eclipse here: https://github.com/forwardkth/Blacklib_template.git 
 
 My Modification to the original Blacklib recently are:
 
