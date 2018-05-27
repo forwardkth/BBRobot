@@ -43,11 +43,8 @@ Historical project updates:
 1. Start working with the Computer Vision based remote controller for the WiFiRobot (ongoing...)
     
 2018       
-1. Add formal WiFi robot project code under "BBLib_VisualGDB/WiFiRobot/"
+1. Add formal WiFi robot project code under "BBRobot/WiFiRobot/"
 2. Add Json support for Multiple sensor data transmission
-
-The picture below shows the visualGDB configuration with VS2015 for cross complie and remote debug and deploy
-http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
 
 ------------------------------------------------------------
 ![](http://ww2.sinaimg.cn/mw690/74505a4cgw1evho2onxwsj21kw16o7wh.jpg)
@@ -56,6 +53,8 @@ http://ww3.sinaimg.cn/large/74505a4cgw1f1mhjohmbej21b70rcdwl.jpg
 ![](http://ww4.sinaimg.cn/large/74505a4cgw1f7oyqnelgnj20qo0qo79n.jpg)
 
 The new DEMO video on Youtube:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y1jZm1aZNGg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 https://youtu.be/q4rHsRQ4LsQ
 https://youtu.be/8c8KAbVZPCA
 
@@ -63,12 +62,6 @@ The old outdoor DEMO video on Youtube:
 https://www.youtube.com/v77tkjFmZqY
 
 ------------------------------------------------------------
-The code compiled sucessfully under windows 10 with Visual studio 2017 and visualGDB 5.0.
-
-If you want to know how to use install VisualGDB and how to develop C++ application for Beaglebone (Debian Linux) 
-on Windows OS, you can check out the following links:
-
-http://visualgdb.com/tutorials/beaglebone/
 
 Welcome to contact me if you have any questions.
 
