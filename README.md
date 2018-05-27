@@ -53,7 +53,8 @@ Historical project updates:
 ![](http://ww4.sinaimg.cn/large/74505a4cgw1f7oyqnelgnj20qo0qo79n.jpg)
 
 The new DEMO video on Youtube:
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/embed/Y1jZm1aZNGg)
+
+https://www.youtube.com/embed/Y1jZm1aZNGg
 
 https://youtu.be/q4rHsRQ4LsQ
 https://youtu.be/8c8KAbVZPCA
