@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <string>
-#include "../blacklib/blacklib.h"
+#include "../BlackLib/BlackLib.h"
 #include "../BlackLib/BlackThread/BlackThread.h"
 #include "../BlackLib/BlackMutex/BlackMutex.h"
 #include "../BlackLib/BlackUART/BlackUART.h"

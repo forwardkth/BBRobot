@@ -21,8 +21,8 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <unistd.h>
-#include "WiFiRobotjson.h"
-#include "../blacklib/blacklib.h"
+#include "WiFiRobotJson.h"
+#include "../BlackLib/BlackLib.h"
 #include "../BlackLib/BlackThread/BlackThread.h"
 #include "../BlackLib/BlackMutex/BlackMutex.h"
 
