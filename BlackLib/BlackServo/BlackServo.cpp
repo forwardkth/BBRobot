@@ -11,7 +11,7 @@
 
 #include "BlackServo.h"
 
-namespace BlackLib{
+namespace BlackLib {
 
 BlackServo::BlackServo(pwmName pwmPin)
     : BlackPWM(pwmPin),
@@ -19,8 +19,8 @@ BlackServo::BlackServo(pwmName pwmPin)
       min_ms(0.5),
       pwmFreq(50),
       period(1000.0 / pwmFreq) {
-  this -> setDutyPercent(0.0);
-  this -> setPeriodTime(20, milisecond);
+  this->setDutyPercent(0.0);
+  this->setPeriodTime(20, milisecond);
 }
 
 BlackServo::~BlackServo() {
@@ -28,11 +28,13 @@ BlackServo::~BlackServo() {
 }
 
 bool BlackServo::write_angle(int angle) {
-  if(angle < 0) angle = 0;
-  if(angle > 180) angle = 180;
+  if (angle < 0)
+    angle = 0;
+  if (angle > 180)
+    angle = 180;
   int64_t value = ((max_ms - min_ms) / 180.0 * angle + min_ms) * 1000;
-  this -> setPeriodTime(period, milisecond);
-  this -> setLoadRatioTime(value, microsecond);
+  this->setPeriodTime(period, milisecond);
+  this->setLoadRatioTime(value, microsecond);
   //For debug purpose
   //std::cout << "DUTY after setting load time: \t\t" << this->getDutyValue() << std::endl;
   //std::cout << "DUTY after setting space time: \t\t" << this->getDutyValue() << std::endl;
@@ -42,7 +44,7 @@ bool BlackServo::write_angle(int angle) {
 }
 
 bool BlackServo::ReleasePWM() {
-  this -> setDutyPercent(0.0);
+  this->setDutyPercent(0.0);
   return true;
 }
 

@@ -27,21 +27,20 @@
 #include "../BlackLib/BlackMutex/BlackMutex.h"
 
 using namespace std;
-using json = nlohmann::json; //add Json support
+using json = nlohmann::json;
+//add Json support
 using namespace BlackLib;
-
 
 namespace WiFiRobot {
 // TCP thread for order receiver and execution
 class TCPSenderThread : public BlackLib::BlackThread {
  public:
-  void onStartHandler();// runnable
+  void onStartHandler();  // runnable
 
-  TCPSenderThread(int &mutex_ultra_distance, // Ultrasonic sensor data
-                  int &mutex_servoxy_angle, // Servo motor XY axis angle
-                  int &mutex_servoz_angle,  // Servo motor Z axis angle
-                  BlackMutex* &distanceMutex,
-                  BlackMutex* &servoMutex);
+  TCPSenderThread(int &mutex_ultra_distance,  // Ultrasonic sensor data
+      int &mutex_servoxy_angle,  // Servo motor XY axis angle
+      int &mutex_servoz_angle,  // Servo motor Z axis angle
+      BlackMutex* &distanceMutex, BlackMutex* &servoMutex);
   ~TCPSenderThread();
 
  private:
@@ -52,5 +51,5 @@ class TCPSenderThread : public BlackLib::BlackThread {
   BlackMutex* &rangeMutex;
 };
 
-} //namespace WiFiRobot
+}  //namespace WiFiRobot
 #endif /* WIFIROBOT_WIFIROBOT_TCPSENDER_THREAD_H_ */

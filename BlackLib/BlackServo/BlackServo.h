@@ -12,18 +12,18 @@
 
 namespace BlackLib {
 
-class BlackServo: public BlackPWM {
+class BlackServo : public BlackPWM {
  public:
- /*! @brief write servo motor angle between 0 to 180 degree.
-  *
-  *  @return true
-  */
+  /*! @brief write servo motor angle between 0 to 180 degree.
+   *
+   *  @return true
+   */
   bool write_angle(int angle);
 
- /*! @brief stop Servo motor control
-  *
-  *  @return true
-  */
+  /*! @brief stop Servo motor control
+   *
+   *  @return true
+   */
   bool ReleasePWM();
 
   explicit BlackServo(pwmName pwmPin);
