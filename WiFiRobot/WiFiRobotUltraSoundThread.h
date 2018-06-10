@@ -12,7 +12,7 @@
 #ifndef WIFIROBOT_WIFIROBOT_ULTRASOUND_THREAD_H_
 #define WIFIROBOT_WIFIROBOT_ULTRASOUND_THREAD_H_
 
-#include <iostream>
+#include <stdio.h>//do not use iostream in product code
 #include <string>
 #include "../BlackLib/BlackLib.h"
 #include "../BlackLib/BlackThread/BlackThread.h"

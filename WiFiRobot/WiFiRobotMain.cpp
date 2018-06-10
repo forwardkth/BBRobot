@@ -9,7 +9,7 @@
 // Blog: http://forwardkth.github.io/
 // Project introduction:  http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/
 
-#include <iostream>
+#include <stdio.h> //do not use iostream in product code
 #include "WiFiRobotUltraSoundThread.h"
 #include "WiFiRobotTCPReceiverThread.h"
 #include "WiFiRobotTCPSenderThread.h"
@@ -88,13 +88,19 @@ int main(int argc, char **argv) {  // this is the main function for the wifirobo
       delete ultras;
       ultras = nullptr;
       std::ios::sync_with_stdio(false);
-      std::cout << "Ultra sound Thread destroyed!" << std::endl;
+      printf("%s\n","Ultra sound Thread destroyed!");
       break;
     } else if (rev->isFinished()) {
       delete rev;
       rev = nullptr;
       std::ios::sync_with_stdio(false);
-      std::cout << "TCP Receiver Thread destroyed!" << std::endl;
+      printf("%s\n","TCP Receiver Thread destroyed!");
+      break;
+    } else if (sender->isFinished()) {
+      delete sender;
+      sender = nullptr;
+      std::ios::sync_with_stdio(false);
+      printf("%s\n","TCP sender Thread destroyed!");
       break;
     }
   }

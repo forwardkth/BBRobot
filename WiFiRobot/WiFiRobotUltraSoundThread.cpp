@@ -23,7 +23,7 @@ UltraSound::UltraSound(BlackUART &serial, int &distance,
       Highlen(high),
       rangeMutex(distanceMutex) {
   std::ios::sync_with_stdio(false);
-  std::cout << "Ultra sound Thread started!" << std::endl;
+  printf("%s\n", "Ultra sound Thread started!");
 }
 
 UltraSound::~UltraSound() {
@@ -33,16 +33,20 @@ void UltraSound::onStartHandler() {
   uart.setReadBufferSize(16);
   if (uart.open(BlackLib::ReadWrite)) {
     std::ios::sync_with_stdio(false);
-    std::cout << std::endl;
-    std::cout << "Ultrasound Device Path     : " << uart.getPortName()
-              << std::endl;
-    std::cout << "Read Buf. Size  : " << uart.getReadBufferSize() << std::endl;
-    std::cout << "BaudRate In/Out : " << uart.getBaudRate(BlackLib::input)
-              << "/" << uart.getBaudRate(BlackLib::output) << std::endl;
-    std::cout << "Character Size  : " << uart.getCharacterSize() << std::endl;
-    std::cout << "Stop Bit Size   : " << uart.getStopBits() << std::endl;
-    std::cout << "Parity          : " << uart.getParity() << std::endl
-              << std::endl;
+    printf("%s\n", " ");
+    printf("%s\n", uart.getPortName().data());
+    printf("%s", "Read Buf. Size  : ");
+    printf("%d\n", uart.getReadBufferSize());
+    printf("%s", "BaudRate In     : ");
+    printf("%d\n", uart.getBaudRate(BlackLib::input));
+    printf("%s", "BaudRate Out    : ");
+    printf("%d\n", uart.getBaudRate(BlackLib::output));
+    printf("%s", "Character Size  : ");
+    printf("%d\n", uart.getCharacterSize());
+    printf("%s", "Stop Bit Size   : ");
+    printf("%d\n", uart.getStopBits());
+    printf("%s", "Parity          : ");
+    printf("%d\n", uart.getParity());
 
     char writeArr[4] = "U\r\n";
     char readArr[22];

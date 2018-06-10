@@ -26,7 +26,7 @@ TCPSenderThread::TCPSenderThread(int &mutex_ultra_distance,  // Ultrasonic senso
       servoangleMutex(servoMutex),
       rangeMutex(distanceMutex){
   std::ios::sync_with_stdio(false);
-  std::cout << "TCP Sender Thread started!" << std::endl;
+  printf("%s\n","TCP Sender Thread started!");
 }
 
 TCPSenderThread::~TCPSenderThread() {
@@ -47,17 +47,17 @@ void TCPSenderThread::onStartHandler() {
   int rc = bind(serverSocket, (struct sockaddr*) &serverAddr,
                 sizeof(struct sockaddr));
   if (rc == -1) {
-    std::cout << "bind failed!" << std::endl;
+    printf("%s\n","bind failed!");
     exit(1);
   }
   // start listening and the max client number is 100
   rc = listen(serverSocket, 100);
   if (rc == -1) {
-    std::cout << "listen failed!" << std::endl;
+    printf("%s\n","listen failed!");
     exit(1);
   } else {
-    std::cout << "TCP TX Thread Listening on port: " << TCP_PORT_TX
-              << std::endl;  // waiting for a connection
+    printf("%s", "TCP TX Thread listening on port: ");
+    printf("%d\n", TCP_PORT_TX);
   }
   int sock = 0;
   int clientAddrSize = sizeof(struct sockaddr_in);

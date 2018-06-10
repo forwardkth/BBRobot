@@ -13,7 +13,7 @@
 #define WIFIROBOT_WIFIROBOT_TCPSENDER_THREAD_H_
 
 #include <string>
-#include <iostream>
+#include <stdio.h>//do not use iostream in product code
 #include <cstdlib>
 #include <sys/socket.h>
 #include <sys/types.h>
