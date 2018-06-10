@@ -13,11 +13,8 @@
 
 namespace WiFiRobot {
 
-UltraSound::UltraSound(BlackUART &serial,
-                       int &distance,
-                       int &mutex_ultra_distance,
-                       int &low,
-                       int &high,
+UltraSound::UltraSound(BlackUART &serial, int &distance,
+                       int &mutex_ultra_distance, int &low, int &high,
                        BlackMutex* &distanceMutex)
     : uart(serial),
       range(distance),
@@ -26,23 +23,26 @@ UltraSound::UltraSound(BlackUART &serial,
       Highlen(high),
       rangeMutex(distanceMutex) {
   std::ios::sync_with_stdio(false);
-  std::cout << "Ultra sound Thread started!" <<std::endl;
+  std::cout << "Ultra sound Thread started!" << std::endl;
 }
 
-UltraSound::~UltraSound() { }
+UltraSound::~UltraSound() {
+}
 
 void UltraSound::onStartHandler() {
   uart.setReadBufferSize(16);
   if (uart.open(BlackLib::ReadWrite)) {
     std::ios::sync_with_stdio(false);
     std::cout << std::endl;
-    std::cout << "Ultrasound Device Path     : " << uart.getPortName() << std::endl;
+    std::cout << "Ultrasound Device Path     : " << uart.getPortName()
+              << std::endl;
     std::cout << "Read Buf. Size  : " << uart.getReadBufferSize() << std::endl;
-    std::cout << "BaudRate In/Out : " << uart.getBaudRate(BlackLib::input) << "/"
-              << uart.getBaudRate(BlackLib::output) << std::endl;
+    std::cout << "BaudRate In/Out : " << uart.getBaudRate(BlackLib::input)
+              << "/" << uart.getBaudRate(BlackLib::output) << std::endl;
     std::cout << "Character Size  : " << uart.getCharacterSize() << std::endl;
     std::cout << "Stop Bit Size   : " << uart.getStopBits() << std::endl;
-    std::cout << "Parity          : " << uart.getParity() << std::endl << std::endl;
+    std::cout << "Parity          : " << uart.getParity() << std::endl
+              << std::endl;
 
     char writeArr[4] = "U\r\n";
     char readArr[22];
@@ -53,12 +53,12 @@ void UltraSound::onStartHandler() {
       uart.write(writeArr, sizeof(writeArr));
       msleep(500);
       uart.read(readArr, sizeof(readArr));
-      Highlen = (int)readArr[0];
-      Lowlen = (int)readArr[1];
+      Highlen = (int) readArr[0];
+      Lowlen = (int) readArr[1];
       range = Highlen * 256 + Lowlen;
-      if( rangeMutex -> tryLock() ) { // nonblock lock
-        rangeProtected = range; //Sync between threads
-        rangeMutex -> unlock();
+      if (rangeMutex->tryLock()) {  // nonblock lock
+        rangeProtected = range;  //Sync between threads
+        rangeMutex->unlock();
       }
       //std::cout<< "distance forward: "<<range<<std::endl;
     }

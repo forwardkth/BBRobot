@@ -25,23 +25,19 @@ namespace WiFiRobot {
 
 class UltraSound : public BlackLib::BlackThread {
  public:
-  UltraSound(BlackUART &serial,
-             int &distance,
-             int &mutex_ultra_distance,
-             int &low,
-             int &high,
-             BlackMutex* &distanceMutex);
+  UltraSound(BlackUART &serial, int &distance, int &mutex_ultra_distance,
+             int &low, int &high, BlackMutex* &distanceMutex);
   ~UltraSound();
   void onStartHandler();
 
-private:
- BlackUART &uart;
- int &range;
- int &rangeProtected;
- int &Lowlen;
- int &Highlen;
- BlackMutex* &rangeMutex;
+ private:
+  BlackUART &uart;
+  int &range;
+  int &rangeProtected;
+  int &Lowlen;
+  int &Highlen;
+  BlackMutex* &rangeMutex;
 };
 
-}//namespace WiFiRobot
+}  //namespace WiFiRobot
 #endif // WIFIROBOT_WIFIROBOT_ULTRASOUND_THREAD_H_

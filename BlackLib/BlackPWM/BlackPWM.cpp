@@ -133,6 +133,10 @@ namespace BlackLib
                 searchResult = this->searchDirectoryOcp(BlackCore::PWM_P9_42);
                 break;
             }
+            case PWMDISABLE:
+            {
+                break;
+            }
         };
 
 

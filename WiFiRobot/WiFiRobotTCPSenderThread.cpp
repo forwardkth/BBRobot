@@ -19,12 +19,12 @@ namespace WiFiRobot {
 TCPSenderThread::TCPSenderThread(int &mutex_ultra_distance,  // Ultrasonic sensor data
     int &mutex_servoxy_angle,  // Servo motor XY axis angle
     int &mutex_servoz_angle,  // Servo motor Z axis angle
-    BlackMutex* &distanceMutex, BlackMutex* &servoMutex)
+    BlackMutex* &servoMutex, BlackMutex* &distanceMutex)
     : rangeProtected(mutex_ultra_distance),
       protected_servoxy_angle(mutex_servoxy_angle),
       protected_servoz_angle(mutex_servoz_angle),
-      rangeMutex(distanceMutex),
-      servoangleMutex(servoMutex) {
+      servoangleMutex(servoMutex),
+      rangeMutex(distanceMutex){
   std::ios::sync_with_stdio(false);
   std::cout << "TCP Sender Thread started!" << std::endl;
 }
@@ -77,8 +77,8 @@ void TCPSenderThread::onStartHandler() {
 
     std::string s = sensorDataPackage.dump();
     size_t num = send(sock, s.data(), strlen(s.data()), 0);
-    //std::cout << "send char: " << num << std::endl;
-    //std::cout << s.data() << std::endl;
+    std::cout << "send char: " << num << std::endl;
+    std::cout << s.data() << std::endl;
     close(sock);
     this->msleep(500);
   }
