@@ -3,8 +3,7 @@
 // Created on: April 29, 2018
 // Author: Chao Li
 // Email:forward.li.kth@gmail.com
-// Github: https://github.com/forwardkth/BBRobot_VisualGDB
-// Github: https://github.com/forwardkth/Blacklib_template
+// Github: https://github.com/forwardkth/BBRobot
 // Blog: http://forwardkth.github.io/
 // Project introduction:  http://forwardkth.github.io/2015/08/28/wifi-robot-gen-two/
 
