@@ -15,7 +15,7 @@ const int TCP_PORT_RX = 2002;
 
 namespace WiFiRobot {
 
-TCPReceiverThread::TCPReceiverThread(BlackServo &XY, BlackServo &Z,
+TCPReceiverThread::TCPReceiverThread(AdafruitBBIOServo &XY, AdafruitBBIOServo &Z,
                                      int &laser_status, int &servoxy_angle,
                                      int &servoz_angle,
                                      int &mutex_servoxy_angle,
@@ -87,7 +87,7 @@ void TCPReceiverThread::onStartHandler() {  //TCP ReceiverThread Runnable
       switch (order) {
         case '5': {  //PTZ UP
           if (zangle <= 78) {
-            zangle += 2;
+            zangle += 4;
             z.write_angle(zangle);
             if (servoangleMutex->tryLock()) {  // nonblock lock
               protected_servoz_angle = zangle;  //Sync between threads
@@ -106,7 +106,7 @@ void TCPReceiverThread::onStartHandler() {  //TCP ReceiverThread Runnable
         }
         case '6': {  //PTZ DOWN
           if (zangle >= 12) {
-            zangle -= 2;
+            zangle -= 4;
             z.write_angle(zangle);
             if (servoangleMutex->tryLock()) {  // nonblock lock
               protected_servoz_angle = zangle;  //Sync between threads
@@ -125,7 +125,7 @@ void TCPReceiverThread::onStartHandler() {  //TCP ReceiverThread Runnable
         }
         case '7': {  //PLZ LEFT
           if (xyangle >= 42) {
-            xyangle -= 2;
+            xyangle -= 4;
             xy.write_angle(xyangle);
             if (servoangleMutex->tryLock()) {  // nonblock lock
               protected_servoxy_angle = xyangle;  //Sync between threads
@@ -144,7 +144,7 @@ void TCPReceiverThread::onStartHandler() {  //TCP ReceiverThread Runnable
         }
         case '8': {  //PTZ RIGHT
           if (xyangle <= 132) {
-            xyangle += 2;
+            xyangle += 4;
             xy.write_angle(xyangle);
             if (servoangleMutex->tryLock()) {  // nonblock lock
               protected_servoxy_angle = xyangle;  //Sync between threads

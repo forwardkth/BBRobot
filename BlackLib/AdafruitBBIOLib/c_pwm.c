@@ -33,7 +33,10 @@ SOFTWARE.
 
 #include "c_pwm.h"
 #include "common.h"
-
+//////////////////////////////////////////////////////////////////////////////////////////
+#define BBBVERSION41 //!!!!!!! for kernal more than 3.7 and with uboot, should define this
+#define DEBUGINFO  //print the debug info to console
+/////////////////////////////////////////////////////////////////////////////////////////
 #ifdef BBBVERSION41
 #include "c_pinmux.h"
 #endif
@@ -50,9 +53,9 @@ struct pwm_exp
     int period_fd;
     int duty_fd;
     int polarity_fd;
-#ifdef BBBVERSION41
+//#ifdef BBBVERSION41
     int enable_fd;
-#endif
+//#endif
     float duty;
     unsigned long duty_ns;
     unsigned long period_ns;
@@ -69,10 +72,12 @@ struct pwm_exp *lookup_exported_pwm(const char *key)
         if (strcmp(pwm->key, key) == 0) {
             return pwm;
         }
+
         pwm = pwm->next;
     }
-
+    #ifdef DEBUGINFO
     syslog(LOG_DEBUG, "Adafruit_BBIO: lookup_exported_pwm: couldn't find '%s'", key);
+    #endif
     return NULL; /* standard for pointers */
 }
 
@@ -98,7 +103,7 @@ BBIO_err initialize_pwm(void)
 {
 #ifdef BBBVERSION41  // don't load overlay in 4.1+
     if (!pwm_initialized) {
-        strncpy(ocp_dir, "/sys/devices/platform/ocp", sizeof(ocp_dir));
+      strncpy(ocp_dir, "/sys/devices/platform/ocp", sizeof(ocp_dir));
 #else
     BBIO_err err;
     if  (!pwm_initialized && load_device_tree("am33xx_pwm")) {
@@ -109,11 +114,15 @@ BBIO_err initialize_pwm(void)
         }
 #endif
         pwm_initialized = 1;
+        #ifdef DEBUGINFO
         syslog(LOG_DEBUG, "Adafruit_BBIO: initialize_pwm: OK");
+        #endif
         return BBIO_OK;
     }
-
+    #ifdef DEBUGINFO
     syslog(LOG_DEBUG, "Adafruit_BBIO: initialize_pwm: OK");
+    #endif
+
     return BBIO_OK;
 }
 
@@ -124,14 +133,18 @@ BBIO_err pwm_set_frequency(const char *key, float freq) {
     struct pwm_exp *pwm;
 
     if (freq <= 0.0) {
+        #ifdef DEBUGINFO
         syslog(LOG_ERR, "Adafruit_BBIO: pwm_set_frequency: %s freq %f <= 0.0", key, freq);
+        #endif
         return BBIO_INVARG;
     }
 
     pwm = lookup_exported_pwm(key);
 
     if (pwm == NULL) {
+        #ifdef DEBUGINFO
         syslog(LOG_ERR, "Adafruit_BBIO: pwm_set_frequency: %s couldn't find key", key);
+        #endif
         return BBIO_GEN;
     }
 
@@ -359,15 +372,19 @@ BBIO_err pwm_setup(const char *key, __attribute__ ((unused)) float duty, __attri
         return BBIO_CAPE;
     }
     // Do pinmuxing
+    printf("1");
     if(!strcmp(key, "P9_28")) {
         // ecap2 (P9_28) requires mode pwm2
         // based on bonescript commit 23bf443 by Matthew West
+      printf("2");
         strncpy(pin_mode, "pwm2", PIN_MODE_LEN);
     } else {
-        strncpy(pin_mode, "pwm", PIN_MODE_LEN);
+      printf("3");
+      strncpy(pin_mode, "pwm", PIN_MODE_LEN);
     }
+    printf("4");
     set_pin_mode(key, pin_mode);
-
+    printf("5");
     // Get info for pwm
     err = get_pwm_by_key(key, &p);
     if (err != BBIO_OK) {
@@ -497,7 +514,9 @@ BBIO_err pwm_setup(const char *key, __attribute__ ((unused)) float duty, __attri
     snprintf(pwm_fragment, sizeof(pwm_fragment), "pwm_test_%s", key);
 
     // Initialize the ocp_dir
+
     err = build_path("/sys/devices", "ocp", ocp_dir, sizeof(ocp_dir));
+
     if (err != BBIO_OK) {
         return err;
     }
@@ -749,8 +768,9 @@ BBIO_err pwm_disable(const char *key)
             pwm = pwm->next;
         }
     }
-
+    #ifdef DEBUGINFO
     syslog(LOG_DEBUG, "Adafruit_BBIO: pwm_disable: %s OK", key);
+    #endif
     return BBIO_OK;
 }
 

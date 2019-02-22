@@ -23,10 +23,12 @@
 #include "../BlackLib/BlackLib.h"
 #include "../BlackLib/BlackThread/BlackThread.h"
 #include "../BlackLib/BlackMutex/BlackMutex.h"
-#include "../BlackLib/BlackServo/BlackServo.h"
+//#include "../BlackLib/BlackServo/BlackServo.h"
+#include "../BlackLib/AdafruitBBIOServo/AdafruitBBIOServo.h"
 #include "../BlackLib/BlackGPIO/BlackGPIO.h"
 
 using namespace BlackLib;
+using namespace adafruit::bbio;
 
 namespace WiFiRobot {
     // TCP thread for order receiver and execution
@@ -34,8 +36,8 @@ class TCPReceiverThread : public BlackThread {
  public:
   void onStartHandler(); //Thread runnable
         
-  TCPReceiverThread(BlackServo &XY,
-                    BlackServo &Z,
+  TCPReceiverThread(AdafruitBBIOServo &XY,
+                    AdafruitBBIOServo &Z,
                     int &laser_status,
                     int &servoxy_angle,
                     int &servoz_angle,
@@ -50,8 +52,8 @@ class TCPReceiverThread : public BlackThread {
   ~TCPReceiverThread();
 
  private:
-  BlackServo &xy;
-  BlackServo &z;
+  AdafruitBBIOServo &xy;
+  AdafruitBBIOServo &z;
   int &laser;
   int &xyangle;
   int &zangle;
