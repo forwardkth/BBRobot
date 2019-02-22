@@ -47,8 +47,10 @@ Historical project updates:
 2. Add Json support for Multiple sensor data transmission
 
 2019
+
 Integrate BBIO c and cpp code to fix BlackLib pwm.
-The low level BBIO code is integrated to fix the PWM issue of BlackLib  for Beaglebone image with Linux kernal more than 3.7 up to 14.4.
+The low level BBIO code is integrated to fix the PWM issue of BlackLib
+for Beaglebone image with Linux kernal more than 3.7 up to 14.4.
 1. Add AdafruitBBIOLib (c and cpp)
 2. Add new C++ Servo class "AdafruitBBIOServo"
 3. update BBRobot code to fix the PWM and Servo control function
