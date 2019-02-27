@@ -10,7 +10,7 @@
 
 #include "WiFiRobotTCPReceiverThread.h"
 
-const std::string TCP_ADDR_RX("192.168.1.79");
+const std::string TCP_ADDR_RX("192.168.1.78");
 const int TCP_PORT_RX = 2002;
 
 namespace WiFiRobot {

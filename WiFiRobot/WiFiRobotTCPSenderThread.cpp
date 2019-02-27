@@ -9,7 +9,7 @@
 
 #include "WiFiRobotTCPSenderThread.h"
 
-const std::string TCP_ADDR_TX("192.168.1.79");
+const std::string TCP_ADDR_TX("192.168.1.78");
 const int TCP_PORT_TX = 2003;  //Listen on Port 2003 for TCP TX
 json sensorDataPackage;
 
