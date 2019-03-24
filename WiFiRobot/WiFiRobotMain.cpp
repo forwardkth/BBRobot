@@ -16,8 +16,8 @@
 using namespace std;
 using namespace BlackLib;
 using namespace WiFiRobot;
-using adafruit::bbio::Pwm;
-using adafruit::bbio::BBIOError;
+//using adafruit::bbio::Pwm;
+//using adafruit::bbio::BBIOError;
 // Initialization
 int laser_status = 0;  //on/off
 int servoxy_angle = 75;  // degree
@@ -34,18 +34,19 @@ BlackLib::BlackMutex *UltrasMutex;
 
 int main(int argc, char **argv) {  // this is the main function for the wifirobot project
   //Init BBIO
-  adafruit::bbio::init({LOG_DEBUG, nullptr, LOG_PERROR});
+  //adafruit::bbio::init({LOG_DEBUG, nullptr, LOG_PERROR});
   //Init Mutex
   UltrasMutex = new BlackLib::BlackMutex();
   TCPRevMutex = new BlackLib::BlackMutex();
 
   //robot PLZ init
-  //BlackServo servoXY(BlackLib::EHRPWM1B);
-  //BlackServo servoZ(BlackLib::EHRPWM2B);
-  string PWM1B("P9_16");
-  string PWM2B("P8_13");
-  AdafruitBBIOServo servoXY(PWM1B); //P9_16
-  AdafruitBBIOServo servoZ(PWM2B);  //p8_13
+  BlackServo servoXY(BlackLib::EHRPWM1B);
+  BlackServo servoZ(BlackLib::EHRPWM2B);
+  //string PWM1B("P9_16");
+  //string PWM2B("P8_13");
+  //AdafruitBBIOServo servoXY(PWM1B); //P9_16
+  //AdafruitBBIOServo servoZ(PWM2B);  //p8_13
+
   servoXY.write_angle(servoxy_angle);
   servoZ.write_angle(servoz_angle);
   BlackLib::BlackThread::sleep(1);

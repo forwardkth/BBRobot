@@ -15,7 +15,8 @@ const int TCP_PORT_RX = 2002;
 
 namespace WiFiRobot {
 
-TCPReceiverThread::TCPReceiverThread(AdafruitBBIOServo &XY, AdafruitBBIOServo &Z,
+TCPReceiverThread::TCPReceiverThread(//AdafruitBBIOServo &XY, AdafruitBBIOServo &Z,
+                                     BlackServo &XY, BlackServo &Z,
                                      int &laser_status, int &servoxy_angle,
                                      int &servoz_angle,
                                      int &mutex_servoxy_angle,
@@ -181,7 +182,7 @@ void TCPReceiverThread::onStartHandler() {  //TCP ReceiverThread Runnable
           gpio1_12.setValue(low);
           gpio1_14.setValue(low);
           gpio1_15.setValue(low);
-          this->msleep(10);
+          this->msleep(20);
           break;
         }
         case '1': {  // motor forward
@@ -189,25 +190,25 @@ void TCPReceiverThread::onStartHandler() {  //TCP ReceiverThread Runnable
           gpio1_12.setValue(high);
           gpio1_15.setValue(high);
           //  }
-          this->msleep(10);
+          this->msleep(20);
           break;
         }
         case '2': {  // motor backward
           gpio1_14.setValue(high);
           gpio1_13.setValue(high);
-          this->msleep(10);
+          this->msleep(20);
           break;
         }
         case '3': {  // motor turn left
           gpio1_14.setValue(high);
           gpio1_12.setValue(high);
-          this->msleep(10);
+          this->msleep(20);
           break;
         }
         case '4': {  // motor turn right
           gpio1_13.setValue(high);
           gpio1_15.setValue(high);
-          this->msleep(10);
+          this->msleep(20);
           break;
         }
         case 'l': {  // laser on/off
